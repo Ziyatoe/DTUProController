@@ -7,7 +7,7 @@ Data Logger and zero export Controller for Hoymiles DTU-Pro / one Microinverter 
 This script controls zero export power to the grid and creates a daily csv-file for monitoring,
 which can be read with excel etc...
 
-usage this.py 0 or 1 > [1=controller&datalogger] [0=only datalogger]
+ usage: *.py Controller=0/1 [1=controler&datalog] [0=only datalogger], Output=1/0, Limit=10-100
 
 What you need are:
 - set DTU-Pro RS485 device number to 101 or change it bellow
