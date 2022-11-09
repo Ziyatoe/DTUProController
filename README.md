@@ -17,7 +17,7 @@ What you need are:
 - install python3
 - install pymodbus
 - install MQTT mosquitto
-- install Node-Red
+- install Node-Red, if want to use my Node-red functions for data-graphics
 - configure this script below
 - start script in terminal
 
