@@ -106,9 +106,10 @@ EXPORT_PLUS = 1                             # gridmeter direction normal (-)=0 ,
 RWCOUNTER = 4                               # how many times do we try to read or write if not successful before
 doZEROSensivity = 16			    # do_zeroexort if more than this power needed
 
-DTUreadRegisters = [0x1000, 0x1028, 0x1050, 0x1078]  # base address-list for each inverter port
-MainOnOff = 0x9D9C                          # DTU_Pro register inverter on/off all ports
-MainLimitRegs = 0x9D9D                      # DTU_Pro register inverter limit all ports
+DTUreadRegisters = [0x1000, 0x1028, 0x1050, 0x1078]  # base address-list for each inverter1 port
+MainOnOff = 0x9D9C                          # DTU_Pro register all inverter on/off all ports, 0x9D9C,0xC000
+MainLimitRegs = 0x9D9D                      # DTU_Pro register all inverter limit all ports
+                                            # main limit address 0x9D9D 0xC001
 ZeroExportController = 1                    # running 1=controller 0=only as datalogger
 csvStr = ""                                 # String for data file
 MicroTotalPower = 0
@@ -559,15 +560,18 @@ def do_zero_export(dtu_adr):
             Limit= 11
             if Output: print(TABS + "under 11P Limit %:", Limit)
         else:
-            Limit = to_correct_soll * 100 / MAXPOWER
+            Limit = int(to_correct_soll * 100 / MAXPOWER)
             if Output: print(TABS + "Limit calculated %:", Limit)
             if GridPower > doZEROSensivity :  # >16 watt, es wird exportiert, zu viel produktion
-                if OldLimit > 11:
+               # Limit calculated %: 27.0
+                #zu viel Limit is 33 old 34
+
+                if ((OldLimit > 11) and (Limit >= OldLimit)): #todo.........
                     Limit = OldLimit - 1 #int(abs(GridPower) / OnePcnt)
                     if Output: print(TABS + "zu viel \033[1m Limit is", Limit, "old ",OldLimit)
             else:
                 if GridPower < -1*(doZEROSensivity): #< -16 watt, es wird importiert, zu wenig produktion
-                    if OldLimit < 99:
+                    if ((OldLimit < 99) and (Limit <= OldLimit)):
                         Limit = OldLimit + 1 #int(abs(GridPower) / OnePcnt)
                         if Output: print(TABS + "zu wenig \033[1m Limit is", Limit, "old ",OldLimit)
             # fine tuning-----------------
@@ -582,7 +586,7 @@ def do_zero_export(dtu_adr):
         # ----mqtt
         mqttclient.publish("Limiting", Limit)
         # ----mqtt
-        r = dtu_write(MainLimitRegs, Limit, dtu_adr)  # main limit address 0x9D9D 0xC001
+        r = dtu_write(MainLimitRegs, Limit, dtu_adr)
         
         if not r:
             if Output: print("ZeroExportController: dtu_write error!!", r)
