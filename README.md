@@ -1,15 +1,15 @@
 # DTUProController
 Hoymiles DTU-Pro controller for zero export
 
-Beacuse of the bugs on Hoymiles DTU-Pro while doing zero export, I wrote this python script for controlling the Hoymiles DTU-Pro for grid zero export.
+Beacuse of the bugs on the Hoymiles DTU-Pro while doing zero export, I wrote this python script for controlling the Hoymiles DTU-Pro for "real" zero export.
 
 Data Logger and zero export Controller for Hoymiles DTU-Pro / one Microinverter MI1500 series over RS485/ModbusRTU
-This script controls zero export power to the grid and creates a daily csv-file for monitoring,
+This script controls zero export power to the grid, monitoring over mqtt/nodered and creates a daily csv-file for monitoring,
 which can be read with excel etc...
 
  usage: *.py Controller=0/1 [1=controler&datalog] [0=only datalogger], Output=1/0, Limit=10-100
 
-What you need are:
+What do you need:
 - set DTU-Pro RS485 device number to 101 or change it bellow
 - set DTSU666 grid meter device number to 22 or change it bellow, (DDSU666 or whatever CHINT compatible is also ok)
 - for RaspberryPi or PC get a USB/RS485 stick
