@@ -1,0 +1,37 @@
+[ { "directory": "solar",
+    "items": [
+        {"title": "INVSNR", "adr": "0x000", "count": 8, "ratio": 1, "nrtype":7,"unit": "" },
+        {"title": "PortNR", "adr": "0x006", "count": 2, "ratio": 1, "nrtype":2,"unit": "" },
+        {"title": "P_DC", "adr": "0x0010", "count": 2, "ratio": 10, "nrtype":2,"unit": "W"},
+        {"title": "U_DC", "adr": "0x008", "count": 2, "ratio": 10, "nrtype":2,"unit": "V" },
+        {"title": "I_DC", "adr": "0x00A", "count": 2, "ratio": 10, "nrtype":2,"unit": "A"},
+        {"title": "U_ADC", "adr": "0x00C", "count": 2, "ratio": 10, "nrtype":2,"unit": "V"},
+        {"title": "F_ADC", "adr": "0x00E", "count": 2, "ratio": 100, "nrtype":2,"unit": "Hz"},
+
+        {"title": "Q_DC", "adr": "0x012", "count": 2, "ratio": 1, "nrtype":3,"unit": "Wh"},
+        {"title": "QT_DC", "adr": "0x014", "count": 4, "ratio": 1, "nrtype":5,"unit": "Wh"},
+        {"title": "C_DC", "adr": "0x018", "count": 2, "ratio": 10, "nrtype":2,"unit": "C"},
+        {"title": "STS_DC", "adr": "0x01A", "count": 2, "ratio": 1, "nrtype":2,"unit": ""},
+        {"title": "ALR_DC", "adr": "0x01C", "count": 2, "ratio": 1, "nrtype":2,"unit": ""},
+        {"title": "ALRCNT_DC", "adr": "0x01E", "count": 2, "ratio": 1, "nrtype":2,"unit": ""},
+        {"title": "LNK_DC", "adr": "0x020", "count": 2, "ratio": 1, "nrtype":2,"unit": ""}
+
+
+    ]
+  },
+  { "directory": "grid",
+    "items": [
+        {"title": "U_ACL1", "adr": "0x2006", "count": 2, "ratio": 10, "nrtype":8,"unit": "V"},
+        {"title": "I_ACL1", "adr": "0x200C", "count": 2, "ratio": 1000, "nrtype":8,"unit": "A"},
+        {"title": "P_ACtot", "adr": "0x2012", "count": 2, "ratio": 10, "nrtype":8,"unit": "W"},
+        {"title": "P_ACL1", "adr": "0x2014", "count": 2, "ratio": 10, "nrtype":8,"unit": "W"},
+        {"title": "P_ACL2", "adr": "0x2016", "count": 2, "ratio": 10, "nrtype":8,"unit": "W"},
+        {"title": "P_ACL3", "adr": "0x2018", "count": 2, "ratio": 10, "nrtype":8,"unit": "W"},
+
+        {"title": "F_AC", "adr": "0x2044", "count": 2, "ratio": 100, "nrtype":8,"unit": "Hz"},
+        {"title": "Q_IMP", "adr": "0x101e", "count": 2, "ratio": 1, "nrtype":8,"unit": "kWh"},
+        {"title": "Q_EXP", "adr": "0x1028", "count": 2, "ratio": 1, "nrtype":8,"unit": "kWh"},
+        {"title": "end", "adr": "", "count": 0, "ratio":0 , "nrtype":0,"unit": ""}
+    ]
+  }
+]
