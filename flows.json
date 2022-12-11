@@ -1,18 +1,18 @@
 [
     {
-        "id": "72defc5f69d1efd0",
+        "id": "b57e704d056d7aee",
         "type": "tab",
-        "label": "SolarEv",
+        "label": "DTUproCtrl",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "4e3e2f5365a741a8",
+        "id": "f60214632db7939f",
         "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01pvPower3",
-        "topic": "Mi01pvPower3",
+        "z": "b57e704d056d7aee",
+        "name": "INVETERSERNR????/1",
+        "topic": "DTUPRO/INVETERSERNR????/1",
         "qos": "2",
         "datatype": "auto",
         "broker": "70279559360e8a4a",
@@ -20,183 +20,21 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 80,
-        "y": 560,
+        "x": 110,
+        "y": 540,
         "wires": [
             [
-                "b113fb620f41453c",
-                "6a5667c826455085",
-                "f2464a4887d77dc2"
+                "15d708ce33193b8d",
+                "532bb9f4c42fb3df"
             ]
         ]
     },
     {
-        "id": "b113fb620f41453c",
+        "id": "15d708ce33193b8d",
         "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 290,
-        "y": 560,
-        "wires": []
-    },
-    {
-        "id": "47a0fd43985ac71d",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01pvPower4",
-        "topic": "Mi01pvPower4",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 620,
-        "wires": [
-            [
-                "bc9f19fb80dc9367",
-                "6a5667c826455085",
-                "04177f4145295552"
-            ]
-        ]
-    },
-    {
-        "id": "bc9f19fb80dc9367",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV4W.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 290,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "234d770982602ef0",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_totalW",
-        "topic": "Mi01_totalW",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 780,
-        "wires": [
-            [
-                "5c31c3a547feee92",
-                "2c2fe3900f7d9df5",
-                "4347b0271021cfaa",
-                "6a5667c826455085"
-            ]
-        ]
-    },
-    {
-        "id": "5c31c3a547feee92",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "totW.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 280,
-        "y": 780,
-        "wires": []
-    },
-    {
-        "id": "bb814846a0ecc840",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "ImpExpW",
-        "topic": "ImpExpW",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 920,
-        "wires": [
-            [
-                "5e227eec761db4f8",
-                "34e36c7fa118d72f",
-                "4347b0271021cfaa"
-            ]
-        ]
-    },
-    {
-        "id": "5e227eec761db4f8",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "I.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 310,
-        "y": 900,
-        "wires": []
-    },
-    {
-        "id": "e2dcdc1d913f7bd6",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "ConsumW",
-        "topic": "ConsumW",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 980,
-        "wires": [
-            [
-                "a0a635cec163118c",
-                "e9419382dcd7640c",
-                "4347b0271021cfaa"
-            ]
-        ]
-    },
-    {
-        "id": "a0a635cec163118c",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "consum",
-        "active": false,
+        "z": "b57e704d056d7aee",
+        "name": "jsonstrdebug1",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -205,36 +43,392 @@
         "statusVal": "payload",
         "statusType": "auto",
         "x": 320,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "532bb9f4c42fb3df",
+        "type": "json",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 310,
+        "y": 480,
+        "wires": [
+            [
+                "15af58e7d5c874e2",
+                "4806fa584bc85756",
+                "d4c0d1a7afd46972",
+                "609118f15448c5ae",
+                "6abe39892b62d5b1",
+                "a294425f12b645dd",
+                "1f93061704be592d",
+                "e8208c65cecb0654",
+                "ae2852dbcf98ae20",
+                "5960c2a8cc81c289",
+                "eb16bf286d6d64ee",
+                "1d9ee7679fba2590",
+                "a2b79ccb1ec6157c"
+            ]
+        ]
+    },
+    {
+        "id": "15af58e7d5c874e2",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "P_DC1",
+        "func": "msg.payload=msg.payload[\"P_DC\"];\nmsg.topic=\"P_DC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 640,
+        "wires": [
+            [
+                "703e576a77ce52fb",
+                "117d5d172f81efc9",
+                "e88452811a01dc2e"
+            ]
+        ]
+    },
+    {
+        "id": "703e576a77ce52fb",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "PDC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 390,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "4806fa584bc85756",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_DC1",
+        "func": "msg.payload=msg.payload[\"U_DC\"];\nmsg.topic=\"U_DC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 680,
+        "wires": [
+            [
+                "9f2a5a0311d86758",
+                "19b94dc3a06af876"
+            ]
+        ]
+    },
+    {
+        "id": "9f2a5a0311d86758",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "UDC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 430,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "d4c0d1a7afd46972",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC1",
+        "func": "msg.payload=msg.payload[\"I_DC\"];\nmsg.topic=\"I_DC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 720,
+        "wires": [
+            [
+                "034bd0346be3d1e3",
+                "89c8ecb22776c96a"
+            ]
+        ]
+    },
+    {
+        "id": "034bd0346be3d1e3",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 510,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "609118f15448c5ae",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC1",
+        "func": "msg.payload=msg.payload[\"U_ADC\"];\nmsg.topic=\"U_ADC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 760,
+        "wires": [
+            [
+                "a99e356a5103d361"
+            ]
+        ]
+    },
+    {
+        "id": "a99e356a5103d361",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 400,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "6abe39892b62d5b1",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC1",
+        "func": "msg.payload=msg.payload[\"F_ADC\"];\nmsg.topic=\"F_ADC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 800,
+        "wires": [
+            [
+                "3e024493376318f7"
+            ]
+        ]
+    },
+    {
+        "id": "3e024493376318f7",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 440,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "a294425f12b645dd",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC1",
+        "func": "msg.payload=msg.payload[\"Q_DC\"];\nmsg.topic=\"DC1\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 840,
+        "wires": [
+            [
+                "5a0902a7329ec63d",
+                "447cbe2090c1a6b2"
+            ]
+        ]
+    },
+    {
+        "id": "5a0902a7329ec63d",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 580,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "1f93061704be592d",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "QT_DC1",
+        "func": "msg.payload=msg.payload[\"QT_DC\"];\nmsg.topic=\"QT_DC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 880,
+        "wires": [
+            [
+                "d5946be1fa13c64e",
+                "e6a6f0f56cf115df"
+            ]
+        ]
+    },
+    {
+        "id": "d5946be1fa13c64e",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "QT_DC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 420,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "e8208c65cecb0654",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC1",
+        "func": "msg.payload=msg.payload[\"C_DC\"];\nmsg.topic=\"C_DC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 920,
+        "wires": [
+            [
+                "b1ab8de2c1a27659"
+            ]
+        ]
+    },
+    {
+        "id": "b1ab8de2c1a27659",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 480,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "ae2852dbcf98ae20",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC1",
+        "func": "msg.payload=msg.payload[\"STS_DC\"];\nmsg.topic=\"PV1\"\nreturn msg;\n\n//PORT_STATUS = [\"cant read MI\", \"?\", \"?\", \"Normal\", \"?\", \"ev. PV not connected\", \"?\", \"?\", \"Reduced\"]",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 960,
+        "wires": [
+            [
+                "9e5c63485a6f55a5",
+                "c4eef517fdf5b743"
+            ]
+        ]
+    },
+    {
+        "id": "9e5c63485a6f55a5",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 520,
         "y": 960,
         "wires": []
     },
     {
-        "id": "4928ae365386f6ec",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Volt",
-        "topic": "Volt",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 50,
-        "y": 1040,
+        "id": "5960c2a8cc81c289",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC1",
+        "func": "msg.payload=msg.payload[\"ALR_DC\"]\nmsg.topic=\"ALR_DC1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1000,
         "wires": [
             [
-                "648c28a49a669662",
-                "9a47923df57d6000"
+                "7230062cae5b27a5"
             ]
         ]
     },
     {
-        "id": "648c28a49a669662",
+        "id": "7230062cae5b27a5",
         "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "V.Dbg",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC()",
         "active": false,
         "tosidebar": true,
         "console": false,
@@ -243,157 +437,36 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 310,
-        "y": 1020,
+        "x": 570,
+        "y": 1000,
         "wires": []
     },
     {
-        "id": "ec625a5e860e8bf2",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Hz",
-        "topic": "Hz",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 50,
-        "y": 1100,
+        "id": "288f4843f6395b6c",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "P_ACtot",
+        "func": "msg.payload=msg.payload[\"P_ACtot\"];\nmsg.topic=\"P_ACtot\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 20,
         "wires": [
             [
-                "e4a991c5d9a69568",
-                "2031f54ec1e9c59a"
+                "d83d7ccb3f44719b",
+                "978337b59a7bafb3",
+                "7f089940e59eaccb"
             ]
         ]
     },
     {
-        "id": "e4a991c5d9a69568",
+        "id": "d83d7ccb3f44719b",
         "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "Hz.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1080,
-        "wires": []
-    },
-    {
-        "id": "38e96eedb31fb5b5",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01EnergiePV3",
-        "topic": "Mi01EnergiePV3",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 1320,
-        "wires": [
-            [
-                "bea4629fb615bfec",
-                "cd7bf9ab8cf2b256",
-                "63e29e22c0383ad0",
-                "1785b3556f6aa07a"
-            ]
-        ]
-    },
-    {
-        "id": "bea4629fb615bfec",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV3.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1320,
-        "wires": []
-    },
-    {
-        "id": "2e929dda2283def2",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01EnergiePV4",
-        "topic": "Mi01EnergiePV4",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 1380,
-        "wires": [
-            [
-                "558b709bff98be40",
-                "cd7bf9ab8cf2b256",
-                "02479e63ded9d5a6",
-                "1785b3556f6aa07a"
-            ]
-        ]
-    },
-    {
-        "id": "558b709bff98be40",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV4.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1380,
-        "wires": []
-    },
-    {
-        "id": "9171b1e7bd495919",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01StsPort3",
-        "topic": "Mi01StsPort3",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 280,
-        "wires": [
-            [
-                "e2220ea813341568"
-            ]
-        ]
-    },
-    {
-        "id": "bd4b45d7e7b9b04e",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
+        "z": "b57e704d056d7aee",
+        "name": "P_ACtot",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -402,36 +475,35 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 390,
-        "y": 280,
+        "x": 520,
+        "y": 20,
         "wires": []
     },
     {
-        "id": "8109560fd4e95a81",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01StsPort4",
-        "topic": "Mi01StsPort4",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 340,
+        "id": "cd6a46e3b6ae8296",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_ACL1",
+        "func": "msg.payload=msg.payload[\"U_ACL1\"];\nmsg.topic=\"U_ACL1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 60,
         "wires": [
             [
-                "2511e7be3722e37d"
+                "768ce2047fd4278e",
+                "8e600d2a965f5b68"
             ]
         ]
     },
     {
-        "id": "58f9028e5d8bf91b",
+        "id": "768ce2047fd4278e",
         "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
+        "z": "b57e704d056d7aee",
+        "name": "U_ACL1",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -440,155 +512,170 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 390,
-        "y": 340,
+        "x": 580,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "2c2fe3900f7d9df5",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "fd39305ddaa723d4",
-        "order": 1,
-        "width": 3,
-        "height": 2,
-        "gtype": "donut",
-        "title": "Power MI1500",
-        "label": "W",
-        "format": "{{value | number:0}}",
-        "min": 0,
-        "max": "1500",
-        "colors": [
-            "#2ca02c",
-            "#2ca02c",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 800,
-        "y": 780,
+        "id": "5f10453c3eace796",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "I_ACL1",
+        "func": "msg.payload=msg.payload[\"I_ACL1\"];\nmsg.topic=\"I_ACL1\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "3163c2a52206221a",
+                "754fe963810f391f"
+            ]
+        ]
+    },
+    {
+        "id": "3163c2a52206221a",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "I_ACL1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "34e36c7fa118d72f",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "fd39305ddaa723d4",
-        "order": 3,
-        "width": 3,
-        "height": 2,
-        "gtype": "gage",
-        "title": "-Imp/Exp+",
-        "label": "W",
-        "format": "{{value | number:0}}",
-        "min": "-1000",
-        "max": "1000",
-        "colors": [
-            "#8ae234",
-            "#ef2929",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 790,
-        "y": 920,
+        "id": "6ba228485dbb4d30",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "F_AC",
+        "func": "msg.payload=msg.payload[\"F_AC\"];\nmsg.topic=\"F_AC\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "f18d1bca3fb1207e",
+                "4a493c5fd818bde9"
+            ]
+        ]
+    },
+    {
+        "id": "f18d1bca3fb1207e",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "F_AC",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 510,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "e9419382dcd7640c",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "fd39305ddaa723d4",
-        "order": 2,
-        "width": 3,
-        "height": 2,
-        "gtype": "donut",
-        "title": "Consumption",
-        "label": "W",
-        "format": "{{value | number:0}}",
-        "min": 0,
-        "max": "2500",
-        "colors": [
-            "#e9b96e",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 790,
-        "y": 980,
+        "id": "7f19cb3f54300412",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Q_IMP",
+        "func": "msg.payload=msg.payload[\"Q_IMP\"];\nmsg.topic=\"IMP\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "dc0857436cf042f0",
+                "cad3ad06a0eb0c1c",
+                "c0be32027297d6dc"
+            ]
+        ]
+    },
+    {
+        "id": "dc0857436cf042f0",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "Q_IMP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 520,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "9a47923df57d6000",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "c7287de07f66e3d3",
-        "order": 1,
-        "width": 3,
-        "height": 2,
-        "gtype": "gage",
-        "title": "U Grid ",
-        "label": "V",
-        "format": "{{value}}",
-        "min": "190",
-        "max": "280",
-        "colors": [
-            "#00b500",
-            "#cc0000",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 770,
-        "y": 1040,
+        "id": "82a33499734ed74b",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Q_EXP",
+        "func": "msg.payload=msg.payload[\"Q_EXP\"];\nmsg.topic=\"EXP\";\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 240,
+        "wires": [
+            [
+                "f6d6e997bb1695f1",
+                "cad3ad06a0eb0c1c",
+                "c0be32027297d6dc"
+            ]
+        ]
+    },
+    {
+        "id": "f6d6e997bb1695f1",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "Q_EXP",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 600,
+        "y": 240,
         "wires": []
     },
     {
-        "id": "2031f54ec1e9c59a",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "c7287de07f66e3d3",
-        "order": 2,
-        "width": 3,
-        "height": 2,
-        "gtype": "gage",
-        "title": "F Grid ",
-        "label": "Hz",
-        "format": "{{value}}",
-        "min": "40",
-        "max": "60",
-        "colors": [
-            "#00b500",
-            "#40bfb2",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 770,
-        "y": 1100,
-        "wires": []
-    },
-    {
-        "id": "6a5667c826455085",
+        "id": "117d5d172f81efc9",
         "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "8a47e594df31dc79",
+        "z": "b57e704d056d7aee",
+        "name": "PowerPV [W] ",
+        "group": "8e96b148fbf6d58f",
         "order": 2,
-        "width": 11,
-        "height": 6,
-        "label": "Power all PV",
+        "width": 0,
+        "height": 0,
+        "label": "PowerPV [W] ",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm",
@@ -596,10 +683,10 @@
         "nodata": "",
         "dot": false,
         "ymin": "",
-        "ymax": "1500",
-        "removeOlder": "10",
+        "ymax": "",
+        "removeOlder": 1,
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "86400",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
@@ -617,41 +704,1406 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 790,
-        "y": 680,
+        "x": 890,
+        "y": 880,
         "wires": [
             []
         ]
     },
     {
-        "id": "4347b0271021cfaa",
-        "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
+        "id": "9c2fa57ed4bbcfa7",
+        "type": "mqtt in",
+        "z": "b57e704d056d7aee",
+        "name": "INVETERSERNR????/2",
+        "topic": "DTUPRO/INVETERSERNR????/2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "70279559360e8a4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1120,
+        "wires": [
+            [
+                "b75375302bc9be8c"
+            ]
+        ]
+    },
+    {
+        "id": "b75375302bc9be8c",
+        "type": "json",
+        "z": "b57e704d056d7aee",
         "name": "",
-        "group": "8a47e594df31dc79",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 1120,
+        "wires": [
+            [
+                "7c01e604c061cdc2",
+                "d0a7b91acc2246b1",
+                "03cfbcc2f750d1f6",
+                "b26c06e833605ecb",
+                "d09db22ac052a1b2",
+                "4068ef8e79beb1c0",
+                "fe0ed2b7fcf3a3f4",
+                "1c71389cd174a675",
+                "f9cf9e71110b7152",
+                "1dca59664f141ebe",
+                "ee59de461269ea85",
+                "a2b79ccb1ec6157c"
+            ]
+        ]
+    },
+    {
+        "id": "7c01e604c061cdc2",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "jsonObjdbg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "d0a7b91acc2246b1",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "P_DC2",
+        "func": "msg.payload=msg.payload[\"P_DC\"];\nmsg.topic=\"P_DC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1200,
+        "wires": [
+            [
+                "76c2fda0d8441e28",
+                "117d5d172f81efc9",
+                "e88452811a01dc2e"
+            ]
+        ]
+    },
+    {
+        "id": "76c2fda0d8441e28",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "PDC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 390,
+        "y": 1200,
+        "wires": []
+    },
+    {
+        "id": "03cfbcc2f750d1f6",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_DC2",
+        "func": "msg.payload=msg.payload[\"U_DC\"];\nmsg.topic=\"U_DC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1240,
+        "wires": [
+            [
+                "b1a48c8c77ce58ea",
+                "19b94dc3a06af876"
+            ]
+        ]
+    },
+    {
+        "id": "b1a48c8c77ce58ea",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "UDC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 430,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "b26c06e833605ecb",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC2",
+        "func": "msg.payload=msg.payload[\"I_DC\"];\nmsg.topic=\"I_DC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 1280,
+        "wires": [
+            [
+                "a3edb8ddb32ec391",
+                "89c8ecb22776c96a"
+            ]
+        ]
+    },
+    {
+        "id": "a3edb8ddb32ec391",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "d09db22ac052a1b2",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC2",
+        "func": "msg.payload=msg.payload[\"U_ADC\"];\nmsg.topic=\"U_ADC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1320,
+        "wires": [
+            [
+                "627f2b87b3bdae28"
+            ]
+        ]
+    },
+    {
+        "id": "627f2b87b3bdae28",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 400,
+        "y": 1320,
+        "wires": []
+    },
+    {
+        "id": "4068ef8e79beb1c0",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC2",
+        "func": "msg.payload=msg.payload[\"F_ADC\"];\nmsg.topic=\"F_ADC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1360,
+        "wires": [
+            [
+                "075601e8a46af3fe"
+            ]
+        ]
+    },
+    {
+        "id": "075601e8a46af3fe",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 440,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "fe0ed2b7fcf3a3f4",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC2",
+        "func": "msg.payload=msg.payload[\"Q_DC\"];\nmsg.topic=\"DC2\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1400,
+        "wires": [
+            [
+                "2b6b286c66b1db8a",
+                "447cbe2090c1a6b2",
+                "e6a6f0f56cf115df"
+            ]
+        ]
+    },
+    {
+        "id": "2b6b286c66b1db8a",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 580,
+        "y": 1400,
+        "wires": []
+    },
+    {
+        "id": "1c71389cd174a675",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "QTotal_DC2",
+        "func": "msg.payload=msg.payload[\"QT_DC\"];\nmsg.topic=\"QT_DC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 1440,
+        "wires": [
+            [
+                "6db9a5c663aff288"
+            ]
+        ]
+    },
+    {
+        "id": "6db9a5c663aff288",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "QT_DC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 420,
+        "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "f9cf9e71110b7152",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC2",
+        "func": "msg.payload=msg.payload[\"C_DC\"];\nmsg.topic=\"C_DC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1480,
+        "wires": [
+            [
+                "d5e7d43f1eaeb43c"
+            ]
+        ]
+    },
+    {
+        "id": "d5e7d43f1eaeb43c",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "1dca59664f141ebe",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC2",
+        "func": "msg.payload=msg.payload[\"STS_DC\"];\nmsg.topic=\"PV2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1520,
+        "wires": [
+            [
+                "bf073b9cf97e8458",
+                "c4eef517fdf5b743"
+            ]
+        ]
+    },
+    {
+        "id": "bf073b9cf97e8458",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "ee59de461269ea85",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC2",
+        "func": "msg.payload=msg.payload[\"ALR_DC\"]\nmsg.topic=\"ALR_DC2\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 1560,
+        "wires": [
+            [
+                "67c70d3a39a0dcba"
+            ]
+        ]
+    },
+    {
+        "id": "67c70d3a39a0dcba",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC2",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 560,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "539c1aa1e0e4330b",
+        "type": "mqtt in",
+        "z": "b57e704d056d7aee",
+        "name": "INVETERSERNR????/3",
+        "topic": "DTUPRO/INVETERSERNR????/3",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "70279559360e8a4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 1620,
+        "wires": [
+            [
+                "1af9c13afcaa27e5",
+                "13ae80edb04758b5"
+            ]
+        ]
+    },
+    {
+        "id": "1af9c13afcaa27e5",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "jsonstrdebug3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 315,
+        "y": 1606.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "13ae80edb04758b5",
+        "type": "json",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 270,
+        "y": 1640,
+        "wires": [
+            [
+                "b3fc49d88ea60a54",
+                "9d387f09077cdf9c",
+                "d74ffcff31d4108c",
+                "da8994584231f7fa",
+                "f6c10ecc1b38fe56",
+                "6ead78ad93643ead",
+                "8cc9aab932b6d063",
+                "c9df4e1234fc5605",
+                "e05d00f6e83764a6",
+                "02ecaf8efeccfd1d",
+                "e49d37e78760f064",
+                "a2b79ccb1ec6157c"
+            ]
+        ]
+    },
+    {
+        "id": "b3fc49d88ea60a54",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "jsonObjdbg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 415,
+        "y": 1646.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "9d387f09077cdf9c",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "P_DC3",
+        "func": "msg.payload=msg.payload[\"P_DC\"];\nmsg.topic=\"P_DC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 1726.4000244140625,
+        "wires": [
+            [
+                "75be70dbbcf46a3a",
+                "117d5d172f81efc9",
+                "e88452811a01dc2e"
+            ]
+        ]
+    },
+    {
+        "id": "75be70dbbcf46a3a",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "PDC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 355,
+        "y": 1726.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "d74ffcff31d4108c",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_DC3",
+        "func": "msg.payload=msg.payload[\"U_DC\"];\nmsg.topic=\"U_DC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 1766.4000244140625,
+        "wires": [
+            [
+                "d0d72fd8cb6eb38e",
+                "19b94dc3a06af876"
+            ]
+        ]
+    },
+    {
+        "id": "d0d72fd8cb6eb38e",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "UDC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 395,
+        "y": 1766.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "da8994584231f7fa",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC3",
+        "func": "msg.payload=msg.payload[\"I_DC\"];\nmsg.topic=\"I_DC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 195,
+        "y": 1806.4000244140625,
+        "wires": [
+            [
+                "869822a1d18e089d",
+                "89c8ecb22776c96a"
+            ]
+        ]
+    },
+    {
+        "id": "869822a1d18e089d",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 475,
+        "y": 1806.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "f6c10ecc1b38fe56",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC3",
+        "func": "msg.payload=msg.payload[\"U_ADC\"];\nmsg.topic=\"U_ADC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 1846.4000244140625,
+        "wires": [
+            [
+                "1537ee79f76c31f5"
+            ]
+        ]
+    },
+    {
+        "id": "1537ee79f76c31f5",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 375,
+        "y": 1846.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "6ead78ad93643ead",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC3",
+        "func": "msg.payload=msg.payload[\"F_ADC\"];\nmsg.topic=\"F_ADC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 1886.4000244140625,
+        "wires": [
+            [
+                "fc7e1b397231493d"
+            ]
+        ]
+    },
+    {
+        "id": "fc7e1b397231493d",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 415,
+        "y": 1886.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "8cc9aab932b6d063",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC3",
+        "func": "msg.payload=msg.payload[\"Q_DC\"];\nmsg.topic=\"DC3\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 1926.4000244140625,
+        "wires": [
+            [
+                "e76f1ec81df06293",
+                "447cbe2090c1a6b2",
+                "e6a6f0f56cf115df"
+            ]
+        ]
+    },
+    {
+        "id": "e76f1ec81df06293",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 555,
+        "y": 1926.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "c9df4e1234fc5605",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "QTotal_DC3",
+        "func": "msg.payload=msg.payload[\"QT_DC\"];\nmsg.topic=\"QT_DC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 235,
+        "y": 1966.4000244140625,
+        "wires": [
+            [
+                "0dcda5305262697b"
+            ]
+        ]
+    },
+    {
+        "id": "0dcda5305262697b",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "QT_DC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 435,
+        "y": 1966.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "e05d00f6e83764a6",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC3",
+        "func": "msg.payload=msg.payload[\"C_DC\"];\nmsg.topic=\"C_DC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 2006.4000244140625,
+        "wires": [
+            [
+                "5d431b591f6890c3"
+            ]
+        ]
+    },
+    {
+        "id": "5d431b591f6890c3",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 455,
+        "y": 2006.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "02ecaf8efeccfd1d",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC3",
+        "func": "msg.payload=msg.payload[\"STS_DC\"];\nmsg.topic=\"PV3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 2046.4000244140625,
+        "wires": [
+            [
+                "02aba169f765fb5a",
+                "c4eef517fdf5b743"
+            ]
+        ]
+    },
+    {
+        "id": "02aba169f765fb5a",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 495,
+        "y": 2046.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "e49d37e78760f064",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC3",
+        "func": "msg.payload=msg.payload[\"ALR_DC\"]\nmsg.topic=\"ALR_DC3\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 215,
+        "y": 2086.4000244140625,
+        "wires": [
+            [
+                "23ccdfd5a03d6e6c"
+            ]
+        ]
+    },
+    {
+        "id": "23ccdfd5a03d6e6c",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC3",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 535,
+        "y": 2086.4000244140625,
+        "wires": []
+    },
+    {
+        "id": "a13e36dcbafee218",
+        "type": "mqtt in",
+        "z": "b57e704d056d7aee",
+        "name": "INVETERSERNR????/4",
+        "topic": "DTUPRO/INVETERSERNR????/4",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "70279559360e8a4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 2200,
+        "wires": [
+            [
+                "a46046eb11278eb6",
+                "8be0a1f1e00c985a"
+            ]
+        ]
+    },
+    {
+        "id": "a46046eb11278eb6",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "jsonstrdebug1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 520,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "8be0a1f1e00c985a",
+        "type": "json",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 290,
+        "y": 2200,
+        "wires": [
+            [
+                "b8ba44e8db52d5c2",
+                "b6f3f801a581cc92",
+                "496ae3faeee117a9",
+                "e0bcb74c72f59eb9",
+                "6d5edff78763d702",
+                "47d32da2f4f8edf8",
+                "0aa3c767f497216b",
+                "2ea284013cb76657",
+                "be19025ddcdc375b",
+                "b5c781d1cbaca7ac",
+                "36318d3808489531",
+                "a2b79ccb1ec6157c"
+            ]
+        ]
+    },
+    {
+        "id": "b8ba44e8db52d5c2",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "jsonObjdbg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 770,
+        "y": 2200,
+        "wires": []
+    },
+    {
+        "id": "b6f3f801a581cc92",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "P_DC4",
+        "func": "msg.payload=msg.payload[\"P_DC\"];\nmsg.topic=\"P_DC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2280,
+        "wires": [
+            [
+                "8a1ac1030dd4d1f6",
+                "117d5d172f81efc9",
+                "e88452811a01dc2e"
+            ]
+        ]
+    },
+    {
+        "id": "8a1ac1030dd4d1f6",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "PDC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 410,
+        "y": 2280,
+        "wires": []
+    },
+    {
+        "id": "496ae3faeee117a9",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_DC4",
+        "func": "msg.payload=msg.payload[\"U_DC\"];\nmsg.topic=\"U_DC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2320,
+        "wires": [
+            [
+                "b28775e95cdb5910",
+                "19b94dc3a06af876"
+            ]
+        ]
+    },
+    {
+        "id": "b28775e95cdb5910",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "UDC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 450,
+        "y": 2320,
+        "wires": []
+    },
+    {
+        "id": "e0bcb74c72f59eb9",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC4",
+        "func": "msg.payload=msg.payload[\"I_DC\"];\nmsg.topic=\"I_DC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 250,
+        "y": 2360,
+        "wires": [
+            [
+                "ff137e3112b376c6",
+                "89c8ecb22776c96a"
+            ]
+        ]
+    },
+    {
+        "id": "ff137e3112b376c6",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "I_DC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 530,
+        "y": 2360,
+        "wires": []
+    },
+    {
+        "id": "6d5edff78763d702",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC4",
+        "func": "msg.payload=msg.payload[\"U_ADC\"];\nmsg.topic=\"U_ADC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2400,
+        "wires": [
+            [
+                "3c01b56e4e1ed673"
+            ]
+        ]
+    },
+    {
+        "id": "3c01b56e4e1ed673",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "U_ADC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 420,
+        "y": 2400,
+        "wires": []
+    },
+    {
+        "id": "47d32da2f4f8edf8",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC4",
+        "func": "msg.payload=msg.payload[\"F_ADC\"];\nmsg.topic=\"F_ADC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2440,
+        "wires": [
+            [
+                "880d61b3788c3112"
+            ]
+        ]
+    },
+    {
+        "id": "880d61b3788c3112",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "F_ADC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 460,
+        "y": 2440,
+        "wires": []
+    },
+    {
+        "id": "0aa3c767f497216b",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC4",
+        "func": "msg.payload=msg.payload[\"Q_DC\"];\nmsg.topic=\"DC4\"\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2480,
+        "wires": [
+            [
+                "a8a97df7d442bd84",
+                "447cbe2090c1a6b2",
+                "e6a6f0f56cf115df"
+            ]
+        ]
+    },
+    {
+        "id": "a8a97df7d442bd84",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 600,
+        "y": 2480,
+        "wires": []
+    },
+    {
+        "id": "2ea284013cb76657",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "QTotal_DC4",
+        "func": "msg.payload=msg.payload[\"QT_DC\"];\nmsg.topic=\"QT_DC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 2520,
+        "wires": [
+            [
+                "e5cf382ba6612dce"
+            ]
+        ]
+    },
+    {
+        "id": "e5cf382ba6612dce",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "QT_DC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 460,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "be19025ddcdc375b",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC4",
+        "func": "msg.payload=msg.payload[\"C_DC\"];\nmsg.topic=\"C_DC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2560,
+        "wires": [
+            [
+                "ef18122f6c542c43"
+            ]
+        ]
+    },
+    {
+        "id": "ef18122f6c542c43",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "C_DC4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 500,
+        "y": 2560,
+        "wires": []
+    },
+    {
+        "id": "b5c781d1cbaca7ac",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC4",
+        "func": "msg.payload=msg.payload[\"STS_DC\"];\nmsg.topic=\"PV4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2600,
+        "wires": [
+            [
+                "d0bc40ce01a1ab84",
+                "c4eef517fdf5b743"
+            ]
+        ]
+    },
+    {
+        "id": "d0bc40ce01a1ab84",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "STS_DC4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 540,
+        "y": 2600,
+        "wires": []
+    },
+    {
+        "id": "36318d3808489531",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC4",
+        "func": "msg.payload=msg.payload[\"ALR_DC\"]\nmsg.topic=\"ALR_DC4\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 2640,
+        "wires": [
+            [
+                "3bb6d428c75393e1"
+            ]
+        ]
+    },
+    {
+        "id": "3bb6d428c75393e1",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "ALR_DC4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 580,
+        "y": 2640,
+        "wires": []
+    },
+    {
+        "id": "e88452811a01dc2e",
+        "type": "sum",
+        "z": "b57e704d056d7aee",
+        "name": "P_DCtot",
+        "topic": "P_DCtot",
+        "x": 680,
+        "y": 1180,
+        "wires": [
+            [
+                "71a02b7c6b731ddf",
+                "978337b59a7bafb3",
+                "41641f79db26c8be"
+            ]
+        ]
+    },
+    {
+        "id": "71a02b7c6b731ddf",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 690,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "978337b59a7bafb3",
+        "type": "ui_chart",
+        "z": "b57e704d056d7aee",
+        "name": "Grid/DCPower [W",
+        "group": "8e96b148fbf6d58f",
         "order": 1,
-        "width": 11,
-        "height": 6,
-        "label": "All Power [W]",
+        "width": 0,
+        "height": 0,
+        "label": "Grid/DCPower [W] ",
         "chartType": "line",
         "legend": "true",
         "xformat": "HH:mm",
         "interpolate": "linear",
         "nodata": "",
         "dot": false,
-        "ymin": "-1500",
-        "ymax": "1500",
-        "removeOlder": "9",
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
         "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
+        "removeOlderUnit": "86400",
         "cutout": 0,
         "useOneColor": false,
         "useUTC": false,
         "colors": [
-            "#2ca02c",
-            "#ef2929",
-            "#fcaf3e",
-            "#ef2929",
+            "#ed333b",
+            "#2ec27e",
+            "#ff7f0e",
+            "#888a85",
             "#98df8a",
             "#d62728",
             "#ff9896",
@@ -661,157 +2113,172 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 800,
-        "y": 840,
+        "x": 910,
+        "y": 1140,
         "wires": [
             []
         ]
     },
     {
-        "id": "60c9539a51769ebc",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Day",
-        "topic": "Day",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 50,
-        "y": 20,
-        "wires": [
-            [
-                "2d66768d411220d9",
-                "594b63580a5247fb"
-            ]
-        ]
-    },
-    {
-        "id": "132804fe9b51f8df",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Time",
-        "topic": "Time",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 50,
-        "y": 80,
-        "wires": [
-            [
-                "356b6d489174db22",
-                "ea1ae6ec23b43c1c"
-            ]
-        ]
-    },
-    {
-        "id": "356b6d489174db22",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 190,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "2d66768d411220d9",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 190,
-        "y": 20,
-        "wires": []
-    },
-    {
-        "id": "594b63580a5247fb",
-        "type": "ui_text",
-        "z": "72defc5f69d1efd0",
-        "group": "66c35f9ebd1c7a31",
-        "order": 6,
-        "width": 3,
-        "height": 2,
-        "name": "Day",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "x": 370,
-        "y": 20,
-        "wires": []
-    },
-    {
-        "id": "ea1ae6ec23b43c1c",
-        "type": "ui_text",
-        "z": "72defc5f69d1efd0",
-        "group": "c7287de07f66e3d3",
-        "order": 5,
-        "width": 3,
-        "height": 2,
-        "name": "Time",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "x": 350,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "cd7bf9ab8cf2b256",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "d": true,
-        "name": "TotalEnergy",
-        "func": "var topic1=msg.topic;\nvar topic2=msg.topic;\nvar topic3=msg.topic;\nvar topic4=msg.topic;\nvar number1 ;\nvar number2 ;\nvar number3 ;\nvar number4 ;\n\nif (topic1==\"Mi01EnergiePV1\"){\n    number1 = parseFloat(msg.payload);\n}\nif (topic2==\"Mi01EnergiePV2\"){\n    number2 = parseFloat(msg.payload);\n}\nif (topic3==\"Mi01EnergiePV3\"){\n    number3 = parseFloat(msg.payload);\n}\nif (topic4==\"Mi01EnergiePV4\"){\n    number4 = parseFloat(msg.payload);\n}\nvar sum = Number(Number(number1)+Number(number2)+Number(number3)+Number(number4));\n\nmsg.payload=sum;\n\nreturn msg;\n\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 130,
-        "y": 1440,
-        "wires": [
-            [
-                "748b7666b4734357"
-            ]
-        ]
-    },
-    {
-        "id": "748b7666b4734357",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "66c35f9ebd1c7a31",
+        "id": "19b94dc3a06af876",
+        "type": "ui_chart",
+        "z": "b57e704d056d7aee",
+        "name": "PV U[V] ",
+        "group": "8e96b148fbf6d58f",
         "order": 3,
+        "width": 0,
+        "height": 0,
+        "label": "PV U[V] ",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#729fcf",
+            "#e9b96e",
+            "#ff7f0e",
+            "#888a85",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 1320,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "89c8ecb22776c96a",
+        "type": "ui_chart",
+        "z": "b57e704d056d7aee",
+        "name": "PV I[A] ",
+        "group": "8e96b148fbf6d58f",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "label": "PV I[A] ",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#729fcf",
+            "#e9b96e",
+            "#ff7f0e",
+            "#888a85",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 880,
+        "y": 1400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "447cbe2090c1a6b2",
+        "type": "ui_chart",
+        "z": "b57e704d056d7aee",
+        "name": "Qday[Wh]Bar",
+        "group": "3b2c99e984ac0faf",
+        "order": 1,
+        "width": "3",
+        "height": "4",
+        "label": "Qday[Wh]",
+        "chartType": "bar",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#729fcf",
+            "#e9b96e",
+            "#ff7f0e",
+            "#57e389",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 900,
+        "y": 1500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e6a6f0f56cf115df",
+        "type": "sum",
+        "z": "b57e704d056d7aee",
+        "name": "Q_DCtot",
+        "topic": "Q_DCtot",
+        "x": 640,
+        "y": 1680,
+        "wires": [
+            [
+                "06f8682def6bb417",
+                "44e6ac9df628f85c"
+            ]
+        ]
+    },
+    {
+        "id": "44e6ac9df628f85c",
+        "type": "ui_gauge",
+        "z": "b57e704d056d7aee",
+        "name": "SolarQ day",
+        "group": "3b2c99e984ac0faf",
+        "order": 2,
         "width": 3,
-        "height": 2,
+        "height": "2",
         "gtype": "donut",
-        "title": "Energy today",
+        "title": "Solar day",
         "label": "Wh",
-        "format": "{{value | number:0}}",
+        "format": "{{value | number:1}}",
         "min": 0,
         "max": "15000",
         "colors": [
@@ -822,59 +2289,16 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 790,
-        "y": 1440,
+        "x": 890,
+        "y": 1660,
         "wires": []
     },
     {
-        "id": "58674201f0c7574b",
-        "type": "ui_template",
-        "z": "72defc5f69d1efd0",
-        "group": "aa4868b6.599898",
-        "name": "Solar Template",
-        "order": 1,
-        "width": 1,
-        "height": 1,
-        "format": "<style>\n.md-toolbar-tools::after { \n    content: \"Pi4/Ev Solar Power\";\n    margin-left: 30%;\n    color: yellow;\n    font-weight: bold;\n}\n</style>\n\n<style>\nbody {\n        font-size:0.8em;\n#        background-color:#E6F7FF !important;\n    }\nmd-card {\n        border-bottom: 1px solid #575757;\n    }\n.nr-dashboard-cardpanel > p {\n        margin-top: 3px !important;\n        margin-bottom: 3px !important;\n        min-height: 23px !important;\n    }\n</style>",
-        "storeOutMessages": true,
-        "fwdInMessages": true,
-        "resendOnRefresh": true,
-        "templateScope": "global",
-        "className": "",
-        "x": 900,
-        "y": 20,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "8cc516f2feafbe0b",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Limiting",
-        "topic": "Limiting",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 50,
-        "y": 2040,
-        "wires": [
-            [
-                "98ec37b5e6bb4490",
-                "424c0b4bfeb8bfea"
-            ]
-        ]
-    },
-    {
-        "id": "98ec37b5e6bb4490",
+        "id": "06f8682def6bb417",
         "type": "debug",
-        "z": "72defc5f69d1efd0",
+        "z": "b57e704d056d7aee",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
@@ -882,17 +2306,359 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 330,
-        "y": 2020,
+        "x": 650,
+        "y": 1620,
         "wires": []
     },
     {
-        "id": "424c0b4bfeb8bfea",
+        "id": "cad3ad06a0eb0c1c",
+        "type": "ui_chart",
+        "z": "b57e704d056d7aee",
+        "name": "QAC[kWh]",
+        "group": "8e96b148fbf6d58f",
+        "order": 5,
+        "width": "0",
+        "height": "0",
+        "label": "QAC[kWh]",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#8ff0a4",
+            "#e01b24",
+            "#ff7f0e",
+            "#57e389",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 890,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e600d2a965f5b68",
         "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "Limit",
-        "group": "c7287de07f66e3d3",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "group": "25b20fa184283935",
+        "order": 1,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "U Grid ",
+        "label": "V",
+        "format": "{{value}}",
+        "min": "190",
+        "max": "280",
+        "colors": [
+            "#e01b24",
+            "#cc0000",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "4a493c5fd818bde9",
+        "type": "ui_gauge",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "group": "25b20fa184283935",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "F Grid ",
+        "label": "Hz",
+        "format": "{{value}}",
+        "min": "40",
+        "max": "60",
+        "colors": [
+            "#c061cb",
+            "#40bfb2",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "754fe963810f391f",
+        "type": "ui_gauge",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "group": "25b20fa184283935",
         "order": 3,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "I Grid ",
+        "label": "A",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "20",
+        "colors": [
+            "#f8e45c",
+            "#40bfb2",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7f089940e59eaccb",
+        "type": "ui_gauge",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "group": "c598aaee02f8414a",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "gtype": "gage",
+        "title": "-Imp/Exp+",
+        "label": "W",
+        "format": "{{value | number:0}}",
+        "min": "-1000",
+        "max": "1000",
+        "colors": [
+            "#8ae234",
+            "#ef2929",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "30d16642622dee2d",
+        "type": "ui_ui-button",
+        "z": "b57e704d056d7aee",
+        "action": "click",
+        "actionType": "str",
+        "name": "cleardata",
+        "group": "25b20fa184283935",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "clear data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "x": 1000,
+        "y": 720,
+        "wires": [
+            [
+                "f40b358916091e56"
+            ]
+        ]
+    },
+    {
+        "id": "f40b358916091e56",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "clear data",
+        "func": "msg.payload=[];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 720,
+        "wires": [
+            [
+                "978337b59a7bafb3",
+                "117d5d172f81efc9",
+                "cad3ad06a0eb0c1c",
+                "447cbe2090c1a6b2",
+                "44e6ac9df628f85c"
+            ]
+        ]
+    },
+    {
+        "id": "41641f79db26c8be",
+        "type": "ui_gauge",
+        "z": "b57e704d056d7aee",
+        "name": "SolarP",
+        "group": "c598aaee02f8414a",
+        "order": 1,
+        "width": 3,
+        "height": "2",
+        "gtype": "wave",
+        "title": "Solar",
+        "label": "W",
+        "format": "{{value | number:0}}",
+        "min": 0,
+        "max": "1500",
+        "colors": [
+            "#2cfcc7",
+            "#2cfcc7",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 870,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "20f783ae4cc7e41a",
+        "type": "ui_text",
+        "z": "b57e704d056d7aee",
+        "group": "3b2c99e984ac0faf",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "name": "time",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 870,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "eb16bf286d6d64ee",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Time",
+        "func": "msg.payload=msg.payload[\"time\"];\nmsg.topic=\"Time\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 480,
+        "wires": [
+            [
+                "20f783ae4cc7e41a",
+                "673f443472ac7a7a"
+            ]
+        ]
+    },
+    {
+        "id": "673f443472ac7a7a",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 610,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a94b7f0ff0ad5ccb",
+        "type": "mqtt in",
+        "z": "b57e704d056d7aee",
+        "name": "DTSU666/1/",
+        "topic": "DTSU666/1/",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "70279559360e8a4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 70,
+        "y": 80,
+        "wires": [
+            [
+                "a288679ec49572dd",
+                "82b6b8d2f9837fd6"
+            ]
+        ]
+    },
+    {
+        "id": "a288679ec49572dd",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "dtsu.dbg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 120,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "82b6b8d2f9837fd6",
+        "type": "json",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "288f4843f6395b6c",
+                "cd6a46e3b6ae8296",
+                "5f10453c3eace796",
+                "6ba228485dbb4d30",
+                "7f19cb3f54300412",
+                "82a33499734ed74b",
+                "3e159ac232c616c7"
+            ]
+        ]
+    },
+    {
+        "id": "45fd5a62f10ea4f6",
+        "type": "ui_gauge",
+        "z": "b57e704d056d7aee",
+        "name": "Limit",
+        "group": "25b20fa184283935",
+        "order": 4,
         "width": 3,
         "height": 2,
         "gtype": "compass",
@@ -909,169 +2675,111 @@
         "seg1": "",
         "seg2": "",
         "className": "",
-        "x": 770,
-        "y": 2040,
+        "x": 870,
+        "y": 1040,
         "wires": []
     },
     {
-        "id": "6f2bc6b19dea2a9e",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "ImportEnergy",
-        "topic": "ImportEnergy",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 2100,
+        "id": "1d9ee7679fba2590",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "Limit",
+        "func": "msg.payload=msg.payload[\"Limit\"];\nmsg.topic=\"Limit\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 230,
+        "y": 1040,
         "wires": [
             [
-                "4023c17e0c62f0f2",
-                "dff5a7ad888a4b2c"
+                "45fd5a62f10ea4f6"
             ]
         ]
     },
     {
-        "id": "4023c17e0c62f0f2",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
+        "id": "fbf5dce6a891ed73",
+        "type": "file",
+        "z": "b57e704d056d7aee",
         "name": "",
-        "active": false,
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 620,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "260544ad26287b7e",
+        "type": "csv",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "sep": ",",
+        "hdrin": false,
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\r",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 290,
+        "y": 400,
+        "wires": [
+            [
+                "fbf5dce6a891ed73",
+                "dca44973f11c4f28",
+                "1743998b360abb8a"
+            ]
+        ]
+    },
+    {
+        "id": "a2b79ccb1ec6157c",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "DC DataFile",
+        "func": "\nTime=msg.payload[\"time\"];\nDatum=msg.payload[\"date\"];\nINVSNR  =msg.payload[\"INVSNR\"];\nPortNR  =msg.payload[\"PortNR\"];\nP_DC    =msg.payload[\"P_DC\"];\nU_DC    =msg.payload[\"U_DC\"];\nI_DC    =msg.payload[\"I_DC\"];\nU_ADC   =msg.payload[\"U_ADC\"];\nF_ADC   =msg.payload[\"F_ADC\"];\nQ_DC    =msg.payload[\"Q_DC\"];\nQT_DC   =msg.payload[\"QT_DC\"];\nC_DC    =msg.payload[\"C_DC\"];\nSTS_DC  =msg.payload[\"STS_DC\"];\nALR_DC  =msg.payload[\"ALR_DC\"];\nALRCNT_DC=msg.payload[\"ALRCNT_DC\"];\nLNK_DC  =msg.payload[\"LNK_DC\"];\n\nm = { Datum,Time, INVSNR,PortNR,P_DC,U_DC,I_DC,U_ADC,F_ADC,Q_DC,QT_DC,C_DC,STS_DC,ALR_DC,ALRCNT_DC,LNK_DC};\n\nvar path = \"/home/pi/solar/data/\";\nvar fn = path+Datum+\"DC.csv\";\nmsg.filename=fn;\nmsg.payload=m;\nif (STS_DC > 0 )\n    return msg;\n\n//return {payload:m};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 400,
+        "wires": [
+            [
+                "260544ad26287b7e"
+            ]
+        ]
+    },
+    {
+        "id": "1743998b360abb8a",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": true,
-        "complete": "payload",
+        "complete": "filename",
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 330,
-        "y": 2080,
+        "x": 450,
+        "y": 440,
         "wires": []
     },
     {
-        "id": "dff5a7ad888a4b2c",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "ImportEnergy",
-        "group": "66c35f9ebd1c7a31",
-        "order": 1,
-        "width": 3,
-        "height": 2,
-        "gtype": "donut",
-        "title": "ImportEnergy",
-        "label": "kWh",
-        "format": "{{value | number:1}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#fce94f",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 800,
-        "y": 2100,
-        "wires": []
-    },
-    {
-        "id": "977e39c96291116e",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "ExportEnergy",
-        "topic": "ExportEnergy",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 2160,
-        "wires": [
-            [
-                "821f1f6fb5ed2d8b",
-                "bae5ec3d49b628bc"
-            ]
-        ]
-    },
-    {
-        "id": "821f1f6fb5ed2d8b",
+        "id": "dca44973f11c4f28",
         "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 330,
-        "y": 2140,
-        "wires": []
-    },
-    {
-        "id": "bae5ec3d49b628bc",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "ExportEnergy",
-        "group": "66c35f9ebd1c7a31",
-        "order": 2,
-        "width": 3,
-        "height": 2,
-        "gtype": "donut",
-        "title": "ExportEnergy",
-        "label": "kWh",
-        "format": "{{value | number:1}}",
-        "min": 0,
-        "max": "100",
-        "colors": [
-            "#cc0000",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 800,
-        "y": 2160,
-        "wires": []
-    },
-    {
-        "id": "4e9aab6ac8adf79f",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Error",
-        "topic": "Error",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 50,
-        "y": 2220,
-        "wires": [
-            [
-                "e81c5de043ef0fa2",
-                "4925feeb5b0dddd0"
-            ]
-        ]
-    },
-    {
-        "id": "e81c5de043ef0fa2",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
+        "z": "b57e704d056d7aee",
+        "name": "csvdebug",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -1080,33 +2788,110 @@
         "targetType": "msg",
         "statusVal": "payload",
         "statusType": "auto",
-        "x": 330,
-        "y": 2200,
+        "x": 440,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "4925feeb5b0dddd0",
-        "type": "ui_text",
-        "z": "72defc5f69d1efd0",
-        "group": "fd39305ddaa723d4",
-        "order": 5,
-        "width": 3,
-        "height": 2,
-        "name": "error",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "className": "",
-        "x": 770,
-        "y": 2220,
+        "id": "41825713fdaeaa76",
+        "type": "file",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "filename": "",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1120,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0eb10731209e71e3",
+        "type": "csv",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "sep": ",",
+        "hdrin": false,
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\r",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": true,
+        "include_null_values": true,
+        "x": 530,
+        "y": 280,
+        "wires": [
+            [
+                "41825713fdaeaa76",
+                "c728d6484fc29522",
+                "715ac9a76197c83e"
+            ]
+        ]
+    },
+    {
+        "id": "3e159ac232c616c7",
+        "type": "function",
+        "z": "b57e704d056d7aee",
+        "name": "AC DataFile",
+        "func": "\nTime=msg.payload[\"time\"];\nDatum=msg.payload[\"date\"];\nU_ACL1  =msg.payload[\"U_ACL1\"];\nI_ACL1  =msg.payload[\"I_ACL1\"];\nP_ACtot =msg.payload[\"P_ACtot\"];\nP_ACL1  =msg.payload[\"P_ACL1\"];\nF_AC    =msg.payload[\"F_AC\"];\nQ_IMP   =msg.payload[\"Q_IMP\"];\nQ_EXP   =msg.payload[\"Q_EXP\"];\nm = {Datum,Time,U_ACL1,I_ACL1,P_ACtot,P_ACL1,F_AC,Q_IMP,Q_EXP};\n\nvar path = \"/home/pi/solar/data/\";\nvar fn = path+Datum+\"AC.csv\";\nmsg.filename=fn;\nmsg.payload=m;\nif ((Time > \"8:00\") || (Time < \"19:30\"))\n    return msg;\n\n//return {payload:m};\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "0eb10731209e71e3"
+            ]
+        ]
+    },
+    {
+        "id": "715ac9a76197c83e",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "filename",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 870,
+        "y": 280,
         "wires": []
     },
     {
-        "id": "c656af135a9b7752",
+        "id": "c728d6484fc29522",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "csvdebug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "c4eef517fdf5b743",
         "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
+        "z": "b57e704d056d7aee",
         "name": "PVStatus Bar",
-        "group": "c7287de07f66e3d3",
+        "group": "c598aaee02f8414a",
         "order": 4,
         "width": 3,
         "height": 4,
@@ -1139,1067 +2924,81 @@
         "outputs": 1,
         "useDifferentColor": false,
         "className": "",
-        "x": 800,
-        "y": 240,
+        "x": 900,
+        "y": 1820,
         "wires": [
             []
         ]
     },
     {
-        "id": "e2220ea813341568",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV3",
-        "func": "msg.topic=\"P3\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 280,
-        "wires": [
-            [
-                "c656af135a9b7752",
-                "bd4b45d7e7b9b04e"
-            ]
-        ]
-    },
-    {
-        "id": "2511e7be3722e37d",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV4",
-        "func": "msg.topic=\"P4\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 340,
-        "wires": [
-            [
-                "c656af135a9b7752",
-                "58f9028e5d8bf91b"
-            ]
-        ]
-    },
-    {
-        "id": "96a3a0bbdc769115",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_UPv3",
-        "topic": "Mi01_UPv3",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 1640,
-        "wires": [
-            [
-                "5f75df1dc61c373a",
-                "4249ecdcaead4f3b"
-            ]
-        ]
-    },
-    {
-        "id": "5f75df1dc61c373a",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV3.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1640,
-        "wires": []
-    },
-    {
-        "id": "8f2d1a6f1ba6f691",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv3",
-        "topic": "Mi01_IPv3",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 1880,
-        "wires": [
-            [
-                "b8b4f9ef42b2de76",
-                "272a9eeb03a2ae21"
-            ]
-        ]
-    },
-    {
-        "id": "b8b4f9ef42b2de76",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv3_debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 350,
-        "y": 1880,
-        "wires": []
-    },
-    {
-        "id": "1cc3721436c92dd4",
-        "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
-        "name": "Energy Bar",
-        "group": "66c35f9ebd1c7a31",
-        "order": 5,
-        "width": 3,
-        "height": 4,
-        "label": "Energy [Wh]",
-        "chartType": "bar",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#729fcf",
-            "#e9b96e",
-            "#ff7f0e",
-            "#888a85",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 790,
-        "y": 1280,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "cfe0d719d7be67cb",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_UPv4",
-        "topic": "Mi01_UPv4",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 1700,
-        "wires": [
-            [
-                "f594c13923a2b48d",
-                "4249ecdcaead4f3b"
-            ]
-        ]
-    },
-    {
-        "id": "f594c13923a2b48d",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV4_debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 330,
-        "y": 1700,
-        "wires": []
-    },
-    {
-        "id": "d628d022e7038ff1",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv4",
-        "topic": "Mi01_IPv4",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 1940,
-        "wires": [
-            [
-                "3191e0479b5d9683",
-                "272a9eeb03a2ae21"
-            ]
-        ]
-    },
-    {
-        "id": "3191e0479b5d9683",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv4_debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 350,
-        "y": 1940,
-        "wires": []
-    },
-    {
-        "id": "272a9eeb03a2ae21",
-        "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
-        "name": "I Panels[A]",
-        "group": "8a47e594df31dc79",
-        "order": 3,
-        "width": 11,
-        "height": 5,
-        "label": "I Panels [A]",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "0",
-        "ymax": "11",
-        "removeOlder": "11",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#729fcf",
-            "#e9b96e",
-            "#ff7f0e",
-            "#888a85",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 790,
-        "y": 1860,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4249ecdcaead4f3b",
-        "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
-        "name": "U Panels [V]",
-        "group": "8a47e594df31dc79",
-        "order": 4,
-        "width": 11,
-        "height": 5,
-        "label": "U Panels [V]",
-        "chartType": "line",
-        "legend": "true",
-        "xformat": "HH:mm",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "32",
-        "ymax": "50",
-        "removeOlder": "10",
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#729fcf",
-            "#e9b96e",
-            "#ff7f0e",
-            "#888a85",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 790,
-        "y": 1620,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "63e29e22c0383ad0",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV3",
-        "func": "msg.topic=\"P3\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 1320,
-        "wires": [
-            [
-                "1cc3721436c92dd4"
-            ]
-        ]
-    },
-    {
-        "id": "02479e63ded9d5a6",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV4",
-        "func": "msg.topic=\"P4\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 1380,
-        "wires": [
-            [
-                "1cc3721436c92dd4"
-            ]
-        ]
-    },
-    {
-        "id": "f2464a4887d77dc2",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV3",
-        "func": "msg.topic=\"P3\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 560,
-        "wires": [
-            [
-                "2cc6ccacee7f191b"
-            ]
-        ]
-    },
-    {
-        "id": "04177f4145295552",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV4",
-        "func": "msg.topic=\"P4\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 620,
-        "wires": [
-            [
-                "2cc6ccacee7f191b"
-            ]
-        ]
-    },
-    {
-        "id": "2cc6ccacee7f191b",
-        "type": "ui_chart",
-        "z": "72defc5f69d1efd0",
-        "name": "Power [W] Bar",
-        "group": "fd39305ddaa723d4",
-        "order": 4,
-        "width": 3,
-        "height": 4,
-        "label": "Power [W] ",
-        "chartType": "bar",
-        "legend": "false",
-        "xformat": "HH:mm:ss",
-        "interpolate": "linear",
-        "nodata": "",
-        "dot": false,
-        "ymin": "",
-        "ymax": "",
-        "removeOlder": 1,
-        "removeOlderPoints": "",
-        "removeOlderUnit": "3600",
-        "cutout": 0,
-        "useOneColor": false,
-        "useUTC": false,
-        "colors": [
-            "#729fcf",
-            "#e9b96e",
-            "#ff7f0e",
-            "#888a85",
-            "#98df8a",
-            "#d62728",
-            "#ff9896",
-            "#9467bd",
-            "#c5b0d5"
-        ],
-        "outputs": 1,
-        "useDifferentColor": false,
-        "className": "",
-        "x": 800,
-        "y": 460,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "4ae17f7d2bc6af81",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "WRtemp",
-        "topic": "WRtemp",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 2300,
-        "wires": [
-            [
-                "05d776100b7e4351",
-                "46a8718356cd3d7b"
-            ]
-        ]
-    },
-    {
-        "id": "05d776100b7e4351",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 330,
-        "y": 2280,
-        "wires": []
-    },
-    {
-        "id": "46a8718356cd3d7b",
-        "type": "ui_gauge",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "group": "fd39305ddaa723d4",
-        "order": 6,
-        "width": 0,
-        "height": 0,
-        "gtype": "gage",
-        "title": "Temperatur",
-        "label": "C",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "70",
-        "colors": [
-            "#fcaf3e",
-            "#e6e600",
-            "#ca3838"
-        ],
-        "seg1": "",
-        "seg2": "",
-        "className": "",
-        "x": 790,
-        "y": 2300,
-        "wires": []
-    },
-    {
-        "id": "5a5b972912e22cc4",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_UPv1",
-        "topic": "Mi01_UPv1",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 1540,
-        "wires": [
-            [
-                "798433d6dba532a7",
-                "4249ecdcaead4f3b"
-            ]
-        ]
-    },
-    {
-        "id": "798433d6dba532a7",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1540,
-        "wires": []
-    },
-    {
-        "id": "c0ac409f2a849ee8",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv1",
-        "topic": "Mi01_IPv1",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 1780,
-        "wires": [
-            [
-                "ac05b61ca90d1958",
-                "272a9eeb03a2ae21"
-            ]
-        ]
-    },
-    {
-        "id": "ac05b61ca90d1958",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv1_debug",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 350,
-        "y": 1780,
-        "wires": []
-    },
-    {
-        "id": "bdd30564d2eec282",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01EnergiePV1",
-        "topic": "Mi01EnergiePV1",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 1200,
-        "wires": [
-            [
-                "00b9e0157f871596",
-                "970f7b81d69c7d55",
-                "cd7bf9ab8cf2b256",
-                "1785b3556f6aa07a"
-            ]
-        ]
-    },
-    {
-        "id": "00b9e0157f871596",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1200,
-        "wires": []
-    },
-    {
-        "id": "970f7b81d69c7d55",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1",
-        "func": "msg.topic=\"P1\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 1200,
-        "wires": [
-            [
-                "1cc3721436c92dd4"
-            ]
-        ]
-    },
-    {
-        "id": "c26a1a98c45cd2ca",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01pvPower1",
-        "topic": "Mi01pvPower1",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 440,
-        "wires": [
-            [
-                "0ebf4123459f5af3",
-                "38f67eb4c8ebd69e",
-                "6a5667c826455085"
-            ]
-        ]
-    },
-    {
-        "id": "0ebf4123459f5af3",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 280,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "38f67eb4c8ebd69e",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1",
-        "func": "msg.topic=\"P1\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 440,
-        "wires": [
-            [
-                "2cc6ccacee7f191b"
-            ]
-        ]
-    },
-    {
-        "id": "192110a27914a867",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01StsPort1",
-        "topic": "Mi01StsPort1",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 180,
-        "wires": [
-            [
-                "9af68cbdb7786524"
-            ]
-        ]
-    },
-    {
-        "id": "499c40b210f18f4f",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 390,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "9af68cbdb7786524",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1",
-        "func": "msg.topic=\"P1\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 180,
-        "wires": [
-            [
-                "499c40b210f18f4f",
-                "c656af135a9b7752"
-            ]
-        ]
-    },
-    {
-        "id": "9653467bb752d9e1",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01StsPort2",
-        "topic": "Mi01StsPort2",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 240,
-        "wires": [
-            [
-                "0bc979af5c5f0677"
-            ]
-        ]
-    },
-    {
-        "id": "b2cef4491f144ff7",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 390,
-        "y": 240,
-        "wires": []
-    },
-    {
-        "id": "0bc979af5c5f0677",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV2",
-        "func": "msg.topic=\"P2\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 230,
-        "y": 240,
-        "wires": [
-            [
-                "b2cef4491f144ff7",
-                "c656af135a9b7752"
-            ]
-        ]
-    },
-    {
-        "id": "574539ac5c357121",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01pvPower2",
-        "topic": "Mi01pvPower2",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 500,
-        "wires": [
-            [
-                "f2abaac6e7bdb2a2",
-                "fa83e19e3ce32d65",
-                "6a5667c826455085"
-            ]
-        ]
-    },
-    {
-        "id": "f2abaac6e7bdb2a2",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 290,
-        "y": 500,
-        "wires": []
-    },
-    {
-        "id": "fa83e19e3ce32d65",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV2",
-        "func": "msg.topic=\"P2\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 490,
-        "y": 500,
-        "wires": [
-            [
-                "2cc6ccacee7f191b"
-            ]
-        ]
-    },
-    {
-        "id": "4cf750179aba5b2c",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01EnergiePV2",
-        "topic": "Mi01EnergiePV2",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 80,
-        "y": 1260,
-        "wires": [
-            [
-                "1f810aac1e3726b4",
-                "49e3e64663bb25ce",
-                "cd7bf9ab8cf2b256",
-                "1785b3556f6aa07a"
-            ]
-        ]
-    },
-    {
-        "id": "1f810aac1e3726b4",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV2.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1260,
-        "wires": []
-    },
-    {
-        "id": "49e3e64663bb25ce",
-        "type": "function",
-        "z": "72defc5f69d1efd0",
-        "name": "PV2",
-        "func": "msg.topic=\"P2\"\nreturn msg;\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 1260,
-        "wires": [
-            [
-                "1cc3721436c92dd4"
-            ]
-        ]
-    },
-    {
-        "id": "cac5a577fce8cae5",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_UPv2",
-        "topic": "Mi01_UPv2",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 70,
-        "y": 1600,
-        "wires": [
-            [
-                "ae2c52361989b3d3",
-                "4249ecdcaead4f3b"
-            ]
-        ]
-    },
-    {
-        "id": "ae2c52361989b3d3",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV1.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1600,
-        "wires": []
-    },
-    {
-        "id": "329c088535029168",
-        "type": "mqtt in",
-        "z": "72defc5f69d1efd0",
-        "name": "Mi01_IPv2",
-        "topic": "Mi01_IPv2",
-        "qos": "2",
-        "datatype": "auto",
-        "broker": "70279559360e8a4a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 60,
-        "y": 1840,
-        "wires": [
-            [
-                "75e2e4373e6325d9",
-                "272a9eeb03a2ae21"
-            ]
-        ]
-    },
-    {
-        "id": "75e2e4373e6325d9",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "PV2.Dbg",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 320,
-        "y": 1840,
-        "wires": []
-    },
-    {
-        "id": "4983f3a84e969f7b",
-        "type": "debug",
-        "z": "72defc5f69d1efd0",
-        "name": "EnergyDbg",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": true,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "payload",
-        "statusType": "auto",
-        "x": 530,
-        "y": 1420,
-        "wires": []
-    },
-    {
-        "id": "1785b3556f6aa07a",
+        "id": "c0be32027297d6dc",
         "type": "sum",
-        "z": "72defc5f69d1efd0",
-        "name": "",
-        "topic": "",
-        "x": 310,
-        "y": 1440,
+        "z": "b57e704d056d7aee",
+        "name": "Qtot",
+        "topic": "Qtot",
+        "x": 710,
+        "y": 180,
         "wires": [
             [
-                "4983f3a84e969f7b",
-                "748b7666b4734357"
+                "cad3ad06a0eb0c1c"
             ]
         ]
+    },
+    {
+        "id": "b6de11cf9cca8643",
+        "type": "mqtt in",
+        "z": "b57e704d056d7aee",
+        "name": "DTUStatus",
+        "topic": "DTUStatus",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "70279559360e8a4a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 121.33334350585938,
+        "y": 2760.22216796875,
+        "wires": [
+            [
+                "92b710b456f5ea18",
+                "25be1429f5576464"
+            ]
+        ]
+    },
+    {
+        "id": "92b710b456f5ea18",
+        "type": "debug",
+        "z": "b57e704d056d7aee",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "payload",
+        "statusType": "auto",
+        "x": 421.3333435058594,
+        "y": 2740.22216796875,
+        "wires": []
+    },
+    {
+        "id": "25be1429f5576464",
+        "type": "ui_text",
+        "z": "b57e704d056d7aee",
+        "group": "3b2c99e984ac0faf",
+        "order": 4,
+        "width": 3,
+        "height": "1",
+        "name": "DTUctrlSts",
+        "label": "DTUctrlSts",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "x": 890,
+        "y": 2760,
+        "wires": []
     },
     {
         "id": "70279559360e8a4a",
@@ -2228,32 +3027,10 @@
         "sessionExpiry": ""
     },
     {
-        "id": "fd39305ddaa723d4",
+        "id": "8e96b148fbf6d58f",
         "type": "ui_group",
-        "name": "Current Power",
-        "tab": "cb3390da4d884a3b",
-        "order": 2,
-        "disp": true,
-        "width": "3",
-        "collapse": true,
-        "className": ""
-    },
-    {
-        "id": "c7287de07f66e3d3",
-        "type": "ui_group",
-        "name": "Status",
-        "tab": "cb3390da4d884a3b",
-        "order": 4,
-        "disp": true,
-        "width": 3,
-        "collapse": true,
-        "className": ""
-    },
-    {
-        "id": "8a47e594df31dc79",
-        "type": "ui_group",
-        "name": "Power history",
-        "tab": "cb3390da4d884a3b",
+        "name": "History charts",
+        "tab": "0e182d4c334a3d2c",
         "order": 1,
         "disp": true,
         "width": 11,
@@ -2261,31 +3038,42 @@
         "className": ""
     },
     {
-        "id": "66c35f9ebd1c7a31",
+        "id": "3b2c99e984ac0faf",
         "type": "ui_group",
         "name": "Energy",
-        "tab": "cb3390da4d884a3b",
-        "order": 3,
+        "tab": "0e182d4c334a3d2c",
+        "order": 4,
         "disp": true,
         "width": "3",
-        "collapse": true,
-        "className": ""
-    },
-    {
-        "id": "aa4868b6.599898",
-        "type": "ui_group",
-        "name": "Template",
-        "tab": "cb3390da4d884a3b",
-        "order": 5,
-        "disp": false,
-        "width": 1,
         "collapse": false,
         "className": ""
     },
     {
-        "id": "cb3390da4d884a3b",
+        "id": "25b20fa184283935",
+        "type": "ui_group",
+        "name": "Info",
+        "tab": "0e182d4c334a3d2c",
+        "order": 3,
+        "disp": true,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c598aaee02f8414a",
+        "type": "ui_group",
+        "name": "Power",
+        "tab": "0e182d4c334a3d2c",
+        "order": 2,
+        "disp": true,
+        "width": "3",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0e182d4c334a3d2c",
         "type": "ui_tab",
-        "name": "Hoymiles MI1500",
+        "name": "DTUctrl",
         "icon": "dashboard",
         "order": 1,
         "disabled": false,
