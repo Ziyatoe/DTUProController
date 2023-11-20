@@ -1,11 +1,18 @@
 # DTUProController
 Hoymiles DTU-Pro  zeroexport controller for 2.gen Microinverter with serialnumber begin:
+
 0x1020xxxxxx  #MI200,MI300
+
 0x1021xxxxxx  #MI200,MI300
+
 0x1040xxxxxx MI600
+
 0x1041xxxxxx #MI500,MI600,TSUN TSOL-M800
+
 0x1060xxxxxx MI1500
-0x1061xxxxxx #MI1000,MI1200, MI1500.
+
+0x1061xxxxxx #MI1000,MI1200, MI1500
+
 
 Beacuse of the bugs on the Hoymiles DTU-Pro while doing zero export, I wrote this python script for controlling the Hoymiles DTU-Pro for "real" zero export.
 
