@@ -8,7 +8,9 @@ This script controls zero export power to the grid, monitoring over mqtt/nodered
 which can be read with excel etc...
 
  usage: *.py Controller=0/1 [1=controler&datalog] [0=only datalogger], Output=1/0, Limit=10-100
+ 
  dtupro_ctrl.py 1 1 50     ; script running as zeroexport controller with limiting the microinverter to 50%, output to the console
+ 
  dtupro_ctrl.py 0 1        ; script is running as datalogger, no limiting , output to the console
 
 What do you need:
