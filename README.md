@@ -18,8 +18,8 @@ What do you need:
 - install pymodbus
 - install MQTT mosquitto
 - install Node-Red, if want to use my Node-red functions for data-graphics
-- configure this script below
-- start script in terminal
+- CONFIGURE this script
+- start the script in terminal
 
 Please, place any issues here:
 https://github.com/Ziyatoe/DTUProController/issues
