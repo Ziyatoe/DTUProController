@@ -1,6 +1,6 @@
 '''
 
-Data Logger and zero export Controller for Hoymiles DTU-Pro / max 6 Microinverter MH/MI1500 series over RS485/ModbusRTU
+Data Logger and zero export Controller for Hoymiles DTU-Pro / max. 6 Microinverter MH/MI1500 series over RS485/ModbusRTU
 This script controls zero export power to the grid and publishes data to mqtt for monitoring,
 which can be read with excel etc...
 
