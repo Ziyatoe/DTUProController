@@ -53,7 +53,7 @@ import json
 
 
 # ###################### CONFIGURATION #################################################################################
-VERSION = "0.4.0"
+VERSION = "0.4.4"
 # ::::::::::::
 # clientDTU = ModbusTcpClient('192.168.2.100', 502)   also possible
 clientDTU = ModbusSerialClient(
@@ -81,7 +81,7 @@ DTSU_DEV_NR = 22                            # Chint DTSU666 grid meter Modbus de
 
 # ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-NRofPORTS=4                                  # max number of connected ports on WR
+NRofPORTS=4                                  # max number of ports on WR
 MAXPOWER = 1500                              # for 3 ports max value: MI1500 ~1500Watt/4*3s,
 #Limit = 10                                   # PowerLimit in % of Maxpower 10% at begin
 SLEEP = 30                                  # polling tact
@@ -128,26 +128,30 @@ InvIdPowr=  [[0,0.0], [0,0.0], [0,0.0], [0,0.0], [0,0.0], [0,0.0]]
        #InvIdPowr[0][1]= total produced PVpower of this inverter
        #InvIdPowr[0][2]= empty
        #InvIdPowr[0][3]= empty
-MI300=1
-MI600=2
-MI1500=3
-MItype=[["not known",0,0],["MI300",1,375],["MI600",2,375],["MI1500",4,375]]
+Mi1CH=1
+Mi2CH=2
+Mi4CH=3
+MItype=[["not known",0,0],["Mi1CH",1,375],["Mi2CH",2,375],["Mi4CH",4,375]]
 boldon = "\033[1m"
 boldoff = "\033[0m"
 
 def GetMIModel(sn):
     #---------------------------------------------------------------------------------------
     Mi = (sn >> 32)
-    if Mi == 0x1020:  return MI300  #MI200,MI300
-    if Mi == 0x1021:  return MI300  #MI200,MI300
-    if Mi == 0x1040:  return MI600
-    if Mi == 0x1041:  return MI600 #MI500,MI600,TSUN TSOL-M800
-    if Mi == 0x1060:  return MI1500
-    if Mi == 0x1061:  return MI1500 #MI1000,MI1200, MI1500.
+    if Mi == 0x1020:  return Mi1CH  #MI200,MI300
+    if Mi == 0x1021:  return Mi1CH  #MI200,MI300
+    if Mi == 0x1121:  return Mi1CH  #HM200,HM300  
+         
+    if Mi == 0x1040:  return Mi2CH
+    if Mi == 0x1041:  return Mi2CH #MI500,MI600,TSUN TSOL-M800   
+    if Mi == 0x1141:  return Mi2CH #HM500,HM600
+         
+     
+    if Mi == 0x1060:  return Mi4CH
+    if Mi == 0x1061:  return Mi4CH #MI1000,MI1200, MI1500.
+    if Mi == 0x1161:  return Mi4CH #HM1000,HM1200, HM1500.
     return 0
-#HM 2CH serial >= 0x114100000000 && serial <= 0x114199999999
-#HM 1CH serial >= 0x112100000000 && serial <= 0x112199999999
-#HM 4CH serial >= 0x116100000000 && serial <= 0x116199999999
+
 
 def read_sernr():
     # ------------------------------------------------------------------------------------------------------------------
