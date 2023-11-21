@@ -53,7 +53,7 @@ import json
 
 
 # ###################### CONFIGURATION #################################################################################
-VERSION = "0.4.4"
+VERSION = "0.4.5"
 # ::::::::::::
 # clientDTU = ModbusTcpClient('192.168.2.100', 502)   also possible
 clientDTU = ModbusSerialClient(
