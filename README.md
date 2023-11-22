@@ -13,10 +13,11 @@ which can be read with excel etc...
  dtupro_ctrl.py 0 1        ; script is running as datalogger, no limiting , output to the console
 
 What do you need:
-- SET !! DTU-Pro RS485 device number to 101 or change it bellow 
-- SET !! DTSU666 grid meter device number to 22 or change it bellow, (DDSU666 or whatever CHINT compatible is also ok)
+- SET !! DTU-Pro as Remote Control/Modbus Protocol
+- SET !! DTU-Pro RS485 device number to 101 or change it in script 
+- SET !! DTSU666 grid meter device number to 22 or change it in script (DDSU666 or whatever CHINT compatible is also ok)
 - for RaspberryPi or PC get a USB/RS485 stick
-- connect DTU-Pro, DTSU666 and PC over RS485 (take care of A/B)
+- connect DTU-Pro, DTSU666 and PC over RS485 twisted pair (take care of A/B)
 - install python3
 - install pymodbus
 - install MQTT mosquitto
