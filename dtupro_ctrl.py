@@ -52,7 +52,7 @@ import time
 import json
 
 # ###################### CONFIGURATION #################################################################################
-VERSION = "0.4.6"
+VERSION = "0.4.6.1"
 # ::::::::::::
 # clientDTU = ModbusTcpClient('192.168.2.100', 502)   also possible
 clientDTU = ModbusSerialClient(
@@ -83,7 +83,7 @@ MAXPOWER = 2000     # for all inverters   to be SET !!
 SLEEP = 30  # polling tact
 broker = "127.0.0.1"
 # ###################### END CONFIGURATION #############################################################################
-NRofPORTS = 4       # will be set in loop depend on iverter modell
+NRofPORTS = 4       # can be less than 4, will be set in loop depend on iverter modell
 
 Output = 1  # 0 disable all print commands
 
@@ -163,7 +163,7 @@ def read_sernr():
    if not result.isError():
       decoder = BinaryPayloadDecoder.fromRegisters(result.registers, Endian.Big)
       DtuId = decoder.decode_64bit_uint() >> 16
-      if Output: print("DTUSerialNr:", hex(int(DtuId)), "\tDevice SN Register List (10F872228412)")
+      if Output: print("DTUSerialNr:", hex(int(DtuId)), "\tDevice SN Register List (LİKE:10F8xxxxxxxx)")
    else:
       ststxt = "Error connecting DTU sernr at 0x2000"
       if Output: print(ststxt)
@@ -244,7 +244,7 @@ def readMiDataRegs(DtuDataRegs):
 
 # ---readMiDataRegs---------------------------------------------------------------------------------------------------------------
 
-def readFromDataRegList(my_client, dtuDataRegs, adr, regs_count, dev_nr, number):
+def readFromDataRegList(my_client, dtuDataRegs, adr, regs_count, dev_nr, number): #todo check regs_count
    # ------------------------------------------------------------------------------------------------------------------
    global DtuMiPvData
    my_result = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -257,20 +257,24 @@ def readFromDataRegList(my_client, dtuDataRegs, adr, regs_count, dev_nr, number)
       if dev_nr == DTU_DEV_NR:
          # read registers from DtuMiPvData[], all registers are readed before
          for i in range(int(regs_count / 2)):
-            # print("i:",i," adr:",hex(adr)," idx:",hex(int((adr - 0x1000+i)/2)))
+            if Output : print("readFromDataRegList i:",i," adr:",hex(adr)," idx:",hex(int((adr - 0x1000+i)/2)))
             if dtuDataRegs[0] <= adr < dtuDataRegs[1]:  # PV1,
                my_result[i] = DtuMiPvData[0].registers[int((adr - dtuDataRegs[0]) / 2) + i]
                # print( "PV1 cnt:",i," idx", hex(int((adr - 0x1000)/2+i))," val ",hex(v))
-
+            if NRofPORTS == 1: #check the  NRofPORTS
+               break          #changed for 0.4.6
             if dtuDataRegs[1] <= adr < dtuDataRegs[2]:
                my_result[i] = DtuMiPvData[1].registers[int((adr - dtuDataRegs[1] + i) / 2)]  # PV2
                # print("PV2 ", hex(adr - 0x1028)," val ",DtuMiPvData[1].registers[int((adr - 0x1028+i)/2)])
+            if NRofPORTS == 2: #check the  NRofPORTS
+               break          #changed for 0.4.6
             if dtuDataRegs[2] <= adr < dtuDataRegs[3]:
                my_result[i] = DtuMiPvData[2].registers[int((adr - dtuDataRegs[2] + i) / 2)]  # PV3
                # print("PV3 ", hex(adr - 0x1050)," val ",DtuMiPvData[2].registers[int((adr - 0x1050+i)/2)])
             if dtuDataRegs[3] <= adr:
                my_result[i] = DtuMiPvData[3].registers[int((adr - dtuDataRegs[3] + i) / 2)]  # PV4
                # print("PV4 ", hex(adr - 0x1078)," val ",DtuMiPvData[3].registers[int((adr - 0x1078+i)/2)])
+
          value = my_result
          # if Output: print( "value---------------------")
          # for k in range(int(regs_count/2)):
@@ -672,13 +676,14 @@ if __name__ == "__main__":
 
       SolarP = 0  # summ of all inverter DC Power
       for inv in range(NrOfInv):  # [begin]get all inverter DC data
-         DTUDataReg = [0, 0, 0, 0] #we will fill only used port basis regs
+         DTUDataReg = [0xffff, 0xffff, 0xffff, 0xffff] #will be filled below  with only used port basisregs
          offset = inv * InvAdrOffset
          NRofPORTS = MItype[GetMIModel(sn=InvIdPowr[inv][0])][1]
-         for portnr in range(NRofPORTS):#todo new: registers depend of portnr
+
+         for portnr in range(NRofPORTS):##changed for 0.4.6, registers depend of portnr
             portreg = portnr * 0x28  # pointer
-            # DTUDataReg = [0x1000 + offset, 0x1028 + offset, 0x1050 + offset, 0x1078 + offset]
-            DTUDataReg[portnr] = 0x1000 + portreg + offset
+            # DTUDataReg = [0x1000 + offset, 0x1028 + offset, 0x1050 + offset, 0x1078 + offset] #changed for 0.4.6
+            DTUDataReg[portnr] = 0x1000 + portreg + offset #changed for 0.4.6
 
          if Output: print("Inverter", inv + 1, " of \033[1m", NrOfInv,
                           " SrNr:", hex(InvIdPowr[inv][0]), "\033[0m", hex(DTUDataReg[inv]), "NrOfPorts:", NRofPORTS)
