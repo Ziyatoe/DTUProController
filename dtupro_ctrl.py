@@ -85,7 +85,7 @@ broker = "127.0.0.1"
 # ###################### END CONFIGURATION #############################################################################
 NRofPORTS = 4       # can be less than 4, will be set in loop depend on iverter modell
 
-Output = 1  # 0 disable all print commands
+Output = True  # False disable all print commands
 
 BIT8_INT = 0
 BIT8_UINT = 1
