@@ -676,6 +676,7 @@ if __name__ == "__main__":
          mqttclient.connect(broker, 1883, 60, "127.0.0.1")
 
       SolarP = 0  # summ of all inverter DC Power
+      BaseDataReg = 0x1000
       for inv in range(NrOfInv):  # [begin]get all inverter DC data
          DTUDataReg = [0xffff, 0xffff, 0xffff, 0xffff] #will be filled below  with only used port basisregs
 #-----------------------------------------------------------------#changed for 0.4.6.1-----------
