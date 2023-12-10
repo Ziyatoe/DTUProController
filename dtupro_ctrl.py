@@ -398,8 +398,8 @@ def setup_mqtt():
 # -setup_mqtt-----------------------------------------------------------------------------------------------------------
 
 def setup_things():
-   global Output
-   Usage = "usage: *.py Controller=0/1 [1=controler&datalog] [0=only datalog], Output=1/0, Limit=10-100"
+   global Output, ZeroExportController
+   Usage = "usage: *.py [Controller=0/1 0=only datalog,1=controler&datalog ], Output=1/0"
    if len(sys.argv) < 3:
       if Output: print("parameter error!!")
       if Output: print(Usage)
