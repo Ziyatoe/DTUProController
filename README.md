@@ -1,6 +1,6 @@
 # DTUProController
-Hoymiles DTU-Pro  zeroexport controller for 6 Microinverter 
-Beacuse of the bugs on the Hoymiles DTU-Pro while doing zero export, I wrote this python script for controlling the Hoymiles DTU-Pro for "real" zero export.
+Hoymiles DTU-Pro  zeroexport controller for 6 Microinverter.
+Beacuse of the bugs in the Hoymiles DTU-Pro, while doing zero export, I wrote this python script for controlling the Hoymiles DTU-Pro for a "real" zero export.
 
 Data Logger and zero export Controller for Hoymiles DTU-Pro / Microinverter MI1500,MI1200,MI600,MI300,HM1500,HM1200,HM600,HM300,TSUN TSOL-M800 series over RS485/ModbusRTU
 This script controls zero export power to the grid over DTUPro, monitoring over mqtt/nodered
@@ -22,9 +22,10 @@ What do you need:
 - install pymodbus
 - install MQTT mosquitto
 - install Node-Red, if you want to use my Node-red functions for data-graphics
-- CONFIGURE "dtupro_ctrl.py" in script
+- CONFIGURE "dtupro_ctrl.py" in script under CONFIGURATION
 - start the script in terminal
-
+- if you want to handle have more than 6 inverters, set it in script
+- 
 Please, place any issues here:
 https://github.com/Ziyatoe/DTUProController/issues
 
