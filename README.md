@@ -2,22 +2,22 @@
 Hoymiles DTU-Pro  zeroexport controller for 6 Microinverter 
 Beacuse of the bugs on the Hoymiles DTU-Pro while doing zero export, I wrote this python script for controlling the Hoymiles DTU-Pro for "real" zero export.
 
-Data Logger and zero export Controller for Hoymiles DTU-Pro / (tested with one Microinverter MI1500) series over RS485/ModbusRTU
-This script controls zero export power to the grid, monitoring over mqtt/nodered for monitoring,
-which can be read with excel etc...
+Data Logger and zero export Controller for Hoymiles DTU-Pro / Microinverter MI1500,MI1200,MI600,MI300,HM1500,HM1200,HM600,HM300,TSUN TSOL-M800 series over RS485/ModbusRTU
+This script controls zero export power to the grid over DTUPro, monitoring over mqtt/nodered
 
- usage: *.py Controller=0/1 [1=controler&datalog] [0=only datalogger], Output=1/0, Limit=10-100
+ usage: *.py Controller=0/1 [1=controler&datalog] [0=only datalogger], Output=1/0
  
- dtupro_ctrl.py 1 1 50     ; script running as zeroexport controller with limiting the microinverter to 50%, output to the console
+ dtupro_ctrl.py 1 1      ; script running as zeroexport controller , no output to the console
  
- dtupro_ctrl.py 0 1        ; script is running as datalogger, no limiting , output to the console
+ dtupro_ctrl.py 0 1       ; script is running as datalogger/no zerp export , output to the console
 
 What do you need:
 - SET !! DTU-Pro as Remote Control/Modbus Protocol
 - SET !! DTU-Pro RS485 device number to 101 or change it in script 
 - SET !! DTSU666 grid meter device number to 22 or change it in script (DDSU666 or whatever CHINT compatible is also ok)
+- SET !! Registeradress in dtudtsuregister.json, if you have another Gridmeter
 - for RaspberryPi or PC get a USB/RS485 stick
-- connect DTU-Pro, DTSU666 and PC over RS485 twisted pair (take care of A/B)
+- connect DTU-Pro, DTSU666 and PC or Pi over RS485 twisted pair (take care of A/B)
 - install python3
 - install pymodbus
 - install MQTT mosquitto
@@ -43,4 +43,5 @@ NO COMMERCIAL USE !!
 Copyright 2022 Z.TOe
 
 If you do any modification to this python script please SHARE with me, thank you!!!!-
+
 
