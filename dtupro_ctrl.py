@@ -1,10 +1,10 @@
 '''
 
-Data Logger and zero export Controller for Hoymiles DTU-Pro / max. 6 Microinverter MH/MI1500 series over RS485/ModbusRTU
+Data Logger and zero export Controller for Hoymiles DTU-Pro / max. 6 Microinverter MH/MI series or TSUN over RS485/ModbusRTU
 This script controls zero export power to the grid and publishes data to mqtt for monitoring,
-which can be read with excel etc...
+which can be read for excel etc...
 
-usage this.py 0 or 1 > [1=controller&datalogger] [0=only datalogger]
+usage this.py 0 or 1 > [1=controller&datalogger] [0=only datalogger] [% limit]
 
 What you need are:
 - set DTU-Pro RS485 device number to 101 or change it bellow
@@ -52,7 +52,7 @@ import time
 import json
 
 # ###################### CONFIGURATION #################################################################################
-VERSION = "0.4.6.2"
+VERSION = "0.4.7"
 # ::::::::::::
 # clientDTU = ModbusTcpClient('192.168.2.100', 502)   also possible
 clientDTU = ModbusSerialClient(
@@ -75,18 +75,27 @@ clientDTSU = ModbusSerialClient(
    stopbits=1,
    bytesize=8
 )
-DTSU_DEV_NR = 22  # Chint DTSU666 grid meter Modbus device number
+DTSU_DEV_NR = 22        # Chint DTSU666 grid meter Modbus device number
 
-# ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-MAXPOWER = 2000     # for all inverters   to be SET !!
-# Limit = 10        # PowerLimit in % of Maxpower 10% at begin
-SLEEP = 30  # polling tact
-broker = "127.0.0.1"
+
+NrOfInv   = 6           ## number of inverters, change if you want more <<<<<<<<<<<<<<<<<<<<<<<<<<<
+InvIdPowr = [[0, 0.0], [0, 0.0], [0, 0.0], [0, 0.0], [0, 0.0], [0, 0.0]] #change if you want more depending on NrOfInv
+# inverter [[Sernr, totalpower],,,]
+# InvIdPowr[0][0]= 0x106163707160   1.inverter
+# InvIdPowr[0][1]= total produced PV power of this inverter
+
+MINPERCENT = 10         #in %, MI series min 10%, HM series min.2% to be set 
+EXPORT_PLUS = 1         # gridmeter direction normal (-)=0 , or (+)=1
+RWCOUNTER = 4           # how many times do we try to read or write if not successful before
+doZEROSensivity = 16    # watt, do_zeroexort if more than this power needed
+MAXPOWER  = 2000        # Watt, total all inverters   to be SET !!
+# Limit = 10            # PowerLimit in % of Maxpower 10% at begin
+SLEEP = 30              # polling tact
+broker = "127.0.0.1"    #mqtt broker
+Output = True           # False = disable all print commands
+
 # ###################### END CONFIGURATION #############################################################################
-NRofPORTS = 4       # can be less than 4, will be set in loop depend on iverter modell
-
-Output = True  # False disable all print commands
-
+NRofPORTS = 4           # can be less than 4, will be set in loop depend on iverter modell
 BIT8_INT = 0
 BIT8_UINT = 1
 BIT16_INT = 2
@@ -98,39 +107,27 @@ BIT64_UINT = 7
 BIT32_FLOAT = 8
 
 TABS = "\t\t\t\t"
-
-WAIT = 5  # wait sek. on each read/write
-EXPORT_PLUS = 1  # gridmeter direction normal (-)=0 , now (+)=1
-RWCOUNTER = 4  # how many times do we try to read or write if not successful before
-doZEROSensivity = 16  # do_zeroexort if more than this power needed
-
+WAIT = 5                # wait sek. on each read/write
 BaseDataReg = 0x1000
 InvAdrOffset = 0x28 * 4
 # DTUDataRegAdr = [0x1000, 0x1028, 0x1050, 0x1078]  # base address-list for the first inverter each port1-4
+                                                    # will change for each inverter
 
+MainOnOff = 0x9D9C      # DTU_Pro main register, for all inverter/ports, 0x9D9C or 0xC000
+MainLimitRegs = 0x9D9D  # DTU_Pro limit register, for all inverter/ports,
 
-MainOnOff = 0x9D9C      # DTU_Pro register all inverter on/off all ports, 0x9D9C,0xC000
-MainLimitRegs = 0x9D9D  # DTU_Pro register all inverter limit all ports
-                        # main limit address 0x9D9D 0xC001
 ZeroExportController = 1  # running 1=controller 0=only as datalogger
 SolarP = 0
 mqttclient = mqtt.Client("XX")
-DtuMiPvData = [0] * 4  # DtuMiPvData[port].registers[1] ist ein list!! 2 dim array
 
-# number of inverters
-NrOfInv = 6  #change if you want more
-InvIdPowr = [[0, 0.0], [0, 0.0], [0, 0.0], [0, 0.0], [0, 0.0], [0, 0.0]] #change if you want more depending on NrOfInv
-# inverter Sernr, totalpower
-# InvIdPowr[0][0]= 0x106163707160   1.inverter
-# InvIdPowr[0][1]= total produced PVpower of this inverter
-# InvIdPowr[0][2]= empty
-# InvIdPowr[0][3]= empty
+DtuMiPvData = [0] * 4  # DtuMiPvData[port].registers[1] is a list!! 2 dim array
+
 Mi1CH = 1 #Micrinverter with 1 port
 Mi2CH = 2 #Micrinverter with 2 ports
 Mi4CH = 3 #Micrinverter with 4 ports
 MItype = [["not known", 0, 0], ["Mi1CH", 1, 375], ["Mi2CH", 2, 375], ["Mi4CH", 4, 375]]
-boldon = ""#"\033[1m"
-boldoff =""#"\033[0m"
+boldon = "" #"\033[1m"
+boldoff ="" #"\033[0m"
 
 
 def GetMIModel(sn):
@@ -148,8 +145,6 @@ def GetMIModel(sn):
    if Mi == 0x1061:  return Mi4CH  # MI1000,MI1200, MI1500.
    if Mi == 0x1161:  return Mi4CH  # HM1000,HM1200, HM1500.
    return 0
-
-
 def read_sernr():
    # ------------------------------------------------------------------------------------------------------------------
    global InvIdPowr, NrOfInv
@@ -188,31 +183,23 @@ def read_sernr():
          if Output: print("MISerialNr :", hex(int(InvIdPowr[i][0])), "\tModel:", MItype[GetMIModel(InvIdPowr[i][0])][0],
                           " Ports:", MItype[GetMIModel(sn=InvIdPowr[i][0])][1],
                           " Power/Port:", MItype[GetMIModel(sn=InvIdPowr[i][0])][2])
-
-
       else:
 
          if Output: print("Error connecting DTU, Mi sernr at 0x2056")
          return 0
-      i = i + 1
+      i += 1
       time.sleep(3)
 
    # if Output:
    #     for i in range(NrOfInv):
    #         print (hex(InvIdPowr[i][0]))
 
-   return DtuId,
-
-
+   return DtuId
 # ------------------------------------------------------------------------------------------------------------------
-
 def template():
    # ------------------------------------------------------------------------------------------------------------------
-   a = 1
-
-
+   a = 1#just for def template, not used
 # ------------------------------------------------------------------------------------------------------------------
-
 def readMiDataRegs(DtuDataRegs):
    # ------------------------------------------------------------------------------------------------------------------
    global DtuMiPvData
@@ -220,9 +207,9 @@ def readMiDataRegs(DtuDataRegs):
    if Output: print("[readMiDataRegs] read DTU-Regs ")
    time.sleep(2)
 
-   for port in range(NRofPORTS):  # we know in midata
+   for port in range(NRofPORTS):
       adr_begin = DtuDataRegs[port]  # hex(0x1000+4*0x28) next inverter
-      # achtung es wird immer 2byte register gelesen darum count=20!!!!!!!!!
+      # todo !! achtung es wird immer 2byte register gelesen darum count=20!!!!!!!!! todo !!
       DtuMiPvData[port] = clientDTU.read_holding_registers(address=adr_begin, count=20, unit=DTU_DEV_NR)
       if DtuMiPvData[port].isError():
          if Output: print("[readMiDataRegs] Error Port:", port, " ", hex(adr_begin))
@@ -230,7 +217,7 @@ def readMiDataRegs(DtuDataRegs):
          i += 1
          # print("Port:",port," ",hex(adr_begin))
          # for k in range(20):
-         # print(hex(DtuMiPvData[port].registers[k]))
+         #     print(hex(DtuMiPvData[port].registers[k]))
          # print(DtuMiPvData[port].registers[0]," ",DtuMiPvData[port].registers[1]," ",DtuMiPvData[port].registers[2]," ",DtuMiPvData[port].registers[3])
       time.sleep(2)
    if i < NRofPORTS:
@@ -241,10 +228,7 @@ def readMiDataRegs(DtuDataRegs):
    else:
       if Output: print("[readMiDataRegs] readed ")
       return 1
-
-
 # ---readMiDataRegs---------------------------------------------------------------------------------------------------------------
-
 def readFromDataRegList(my_client, dtuDataRegs, adr, regs_count, dev_nr, number): #todo check regs_count
    # ------------------------------------------------------------------------------------------------------------------
    global DtuMiPvData
@@ -258,7 +242,7 @@ def readFromDataRegList(my_client, dtuDataRegs, adr, regs_count, dev_nr, number)
       if dev_nr == DTU_DEV_NR:
          # read registers from DtuMiPvData[], all registers are readed before
          for i in range(int(regs_count / 2)):
-            if Output : print("readFromDataRegList i:",i," adr:",hex(adr)," idx:",hex(int((adr - 0x1000+i)/2)))
+            #if Output : print("readFromDataRegList i:",i," adr:",hex(adr)," idx:",hex(int((adr - 0x1000+i)/2)))
             if dtuDataRegs[0] <= adr < dtuDataRegs[1]:  # PV1,
                my_result[i] = DtuMiPvData[0].registers[int((adr - dtuDataRegs[0]) / 2) + i]
                # print( "PV1 cnt:",i," idx", hex(int((adr - 0x1000)/2+i))," val ",hex(v))
@@ -306,10 +290,7 @@ def readFromDataRegList(my_client, dtuDataRegs, adr, regs_count, dev_nr, number)
       mqttclient.publish("DTUStatus", ststxt)
       # ----mqtt
       return 0
-
-
 # --readFromDataRegList-----------------------------------------------------------------------------------------------
-
 def dtu_write(reg_adr, towrite, dev_nr=DTU_DEV_NR):
    # ------------------------------------------------------------------------------------------------------------------
    answer = i = 0
@@ -330,10 +311,7 @@ def dtu_write(reg_adr, towrite, dev_nr=DTU_DEV_NR):
       mqttclient.publish("DTUStatus", ststxt)
       # ----mqtt
       return 0
-
-
 # --dtu_write-----------------------------------------------------------------------------------------------------------
-
 # def set_micro_on():
 #     # ------------------------------------------------------------------------------------------------------------------
 #     global OldLimit
@@ -359,7 +337,6 @@ def dtu_write(reg_adr, towrite, dev_nr=DTU_DEV_NR):
 #
 # # --set_micro_on--------------------------------------------------------------------------------------------------------
 
-
 def mqtt_on_connect(client, userdata, flags, rc):
    # -------------------------------------------------inverter-----------------------------------------------------------------
    if rc == 0:
@@ -368,11 +345,7 @@ def mqtt_on_connect(client, userdata, flags, rc):
    else:
       if Output: print("Bad connection Returned code=", rc)
       client.bad_connection_flag = True
-
-
 # -mqtt_on_connect------------------------------------------------------------------------------------------------------
-
-
 def setup_mqtt():
    # ------------------------------------------------------------------------------------------------------------------
    global mqttclient
@@ -393,13 +366,10 @@ def setup_mqtt():
       mqttclient.loop_stop()  # Stop loop
       sys.exit(sys.exit(errno.EACCES))
    mqttclient.loop_stop()
-
-
 # -setup_mqtt-----------------------------------------------------------------------------------------------------------
-
 def setup_things():
-   global Output, ZeroExportController
-   Usage = "usage: *.py [Controller=0/1 0=only datalog,1=controler&datalog ], Output=1/0"
+   global Output,ZeroExportController
+   Usage = "usage: dtupro_ctrl.py [1=controller&datalogger, 0=only datalogger] [Output=1/0] [Limit=10..100%]"
    if len(sys.argv) < 3:
       if Output: print("parameter error!!")
       if Output: print(Usage)
@@ -433,10 +403,7 @@ def setup_things():
    mqttclient.publish("DTUStatus", "running")
    # # ----mqtt
    return Limit, Old_Limit
-
-
 # setup_things ---------------------------------------------------------------------------------------------------------
-
 class DTUCtrl():
    # =======================================================================================================================
    global InvIdPowr
@@ -448,29 +415,30 @@ class DTUCtrl():
    jsonstr = "{"  # initialise json jsonstr
    invPortSts = 0;
 
-   def doZeroExport(self, GridP, SolarP,
-                    ZEROSensivity):  # --------------------------------------------------------------------------------------------
-
+   def doZeroExport(self, GridP, SolarP, ZEROSensivity):
+      # --------------------------------------------------------------------------------------------
+      #this is very tricky, because of the total power and min. power, should be fine tuned for every system
       # todo SolarP > summe of InvIdPowr[all inverters][1]
       if Output: print("[doZeroExport]", SolarP, self.OldLimit, ZEROSensivity)
-      Limit10P = 125  # change to 10% under this watt
-      Limit11P = 170  # over this watt is fine limiting with +/- 1 ????????????????
+      Limit10P = 125  #watt, change to MINPERCENT% if below this
+      Limit11P = 170  #watt, over this, it will be fine limiting, +/- 1 watt ????????????????
       OnePcnt = int(MAXPOWER / 100)  # is watt
 
       # be carefully with the export power direction on grid meter
-      if EXPORT_PLUS:
+      #-----------------------------------------------------------
+      if EXPORT_PLUS:#here is the export to grid as positive number of watt
          to_correct_soll = SolarP + (GridP * -1)
       else:
          to_correct_soll = SolarP + GridP
 
       #    consum_ist = abs(GridPower) + SolarP
       now = datetime.now()
-      if now.hour >= 16:  # after 16 oclock no %10 pcnt
+      if now.hour >= 16:  # after 16 oclock no MINPERCENT%
          Limit10P = 1
          if Output: print(TABS + "its ", now.hour, " oclock!")
 
       if to_correct_soll <= Limit10P:
-         self.Limit = 10
+         self.Limit = MINPERCENT
          if Output: print(TABS + "under 10P Limit %:", self.Limit)
       else:
          if Limit10P < to_correct_soll <= Limit11P:
@@ -482,7 +450,7 @@ class DTUCtrl():
             if GridP > ZEROSensivity:  # >16 watt, es wird exportiert, zu viel produktion
                if ((self.OldLimit > 11) and (self.Limit >= self.OldLimit)):  # todo.........
                   self.Limit = self.OldLimit - 1  # int(abs(GridPower) / OnePcnt)
-                  if Output: print(TABS + "zu viel \033[1m Limit is", self.Limit, "old ", self.OldLimit)
+                  if Output: print(TABS + "too much \033[1m Limit is", self.Limit, "old ", self.OldLimit)
             else:
                if GridP < -1 * (ZEROSensivity):  # < -16 watt, es wird importiert, zu wenig produktion
                   if ((self.OldLimit < 99) and (self.Limit <= self.OldLimit)):
@@ -491,8 +459,8 @@ class DTUCtrl():
             # fine tuning-----------------
             if (self.Limit > 99):
                self.Limit = 100
-            if (self.Limit < 10):
-               self.Limit = 10
+            if (self.Limit < MINPERCENT):
+               self.Limit = MINPERCENT
 
       if (self.Limit != self.OldLimit) or (self.zCounter > 10):
          if Output: print(TABS + "Limiting\033[1m new", self.Limit, "% old", self.OldLimit, "%\033[0m target",
@@ -515,12 +483,9 @@ class DTUCtrl():
          if Output: print(TABS + "ZeroCounter \033[1m", self.zCounter, " Limit is", self.Limit, "%\033[0m target",
                           "%.1f" % to_correct_soll)
          self.zCounter += 1
-
    # doZeroExport -----------------------------------------------------------------------------------------------------
-
    def getData(self, DataRegAdr, invNumber, anzPorts, invsrnr):
    # ------------------------------------------------------------------------------
-
       boldon = "\033[1m"
       boldoff = "\033[0m"
 
@@ -600,10 +565,7 @@ class DTUCtrl():
                        " W")
       return 1
    # def getData-------------------------------------------------------------------------------------------------------
-
-
 # DTUCtrl===============================================================================================================
-
 class DTSUCtrl():
    # =======================================================================================================================
    global Output
@@ -648,8 +610,6 @@ class DTSUCtrl():
 
       return self.GridP
    # def getData-------------------------------------------------------------------------------------------------------
-
-
 # DTSUCtrl==============================================================================================================
 
 if __name__ == "__main__":
@@ -664,12 +624,11 @@ if __name__ == "__main__":
    while not (read_sernr()):
       time.sleep(3)
       # if 1: #ZeroExportController:
-      #     while not (set_micro_on()):  # set ON and power 10% has clientDTU.connect
+      #     while not (set_micro_on()):  # set ON and power down to MINPERCENT%, is option
       #         time.sleep(SLEEP)
-      #     time.sleep(15)
    dtu = DTUCtrl()
    dtsu = DTSUCtrl()
-   while True:  # todo try
+   while True:  # todo cover the loop with try: and except:keyboard interrupt
       while not mqttclient.connected_flag and not mqttclient.bad_connection_flag:  # wait in loop
          if Output: print("MQTT:wait loop")
          time.sleep(2)
@@ -677,36 +636,27 @@ if __name__ == "__main__":
 
       SolarP = 0  # summ of all inverter DC Power
       BaseDataReg = 0x1000
+      # ------------------------------------------------------------------------------
       for inv in range(NrOfInv):  # [begin]get all inverter DC data
          DTUDataReg = [0xffff, 0xffff, 0xffff, 0xffff] #will be filled below  with only used port basisregs
-#-----------------------------------------------------------------#changed for 0.4.6.1-----------
-         # offset = inv * InvAdrOffset
-         # NRofPORTS = MItype[GetMIModel(sn=InvIdPowr[inv][0])][1]
-         #
-         # for portnr in range(NRofPORTS):##changed for 0.4.6, registers depend of portnr
-         #    portreg = portnr * 0x28  # pointer
-         #    # DTUDataReg = [0x1000 + offset, 0x1028 + offset, 0x1050 + offset, 0x1078 + offset] #changed for 0.4.6
-         #    DTUDataReg[portnr] = 0x1000 + portreg + offset
-#-------------------------------------------------------------------#changed for 0.4.6.2-----------
          NRofPORTS = MItype[GetMIModel(sn=InvIdPowr[inv][0])][1]
          offset = inv * (0x28 * NRofPORTS)
 
          for portnr in range(NRofPORTS):
             portreg = portnr * 0x28  # pointer
-            # DTUDataReg = [0x1000 + offset, 0x1028 + offset, 0x1050 + offset, 0x1078 + offset]
+            # DTUDataReg are = [0x1000 + offset, 0x1028 + offset, 0x1050 + offset, 0x1078 + offset]
             DTUDataReg[portnr] = BaseDataReg + portreg
 
          BaseDataReg = DTUDataReg[portnr] + 0x28
 
-#------------------------------------------------------------------------------
          if Output: print("Inverter", inv + 1, " of \033[1m", NrOfInv,
                           " SrNr:", hex(InvIdPowr[inv][0]), "\033[0m basis:",hex(BaseDataReg),
                           hex(DTUDataReg[inv]), "NrOfPorts:", NRofPORTS)
 
          dtu.getData(DTUDataReg, inv, NRofPORTS, invsrnr=InvIdPowr[inv][0])
          SolarP = SolarP + InvIdPowr[inv][1]  # [end] get all inverter DC data
-
-      dtsu.getData()  # get dtsu666 AC data
+      # ------------------------------------------------------------------------------
+      dtsu.getData()  # get grid AC data
 
       if Output: print(boldon, "[main]GridP:", dtsu.GridP, " SolarP:", SolarP, boldoff, "do now ZeroExport")
 
